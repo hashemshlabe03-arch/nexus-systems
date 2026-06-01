@@ -15,43 +15,103 @@
             text-align: center;
         }
         .hero {
-            padding: 100px 20px;
+            padding: 80px 20px;
             background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #4CC9F0;
             margin-bottom: 20px;
         }
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #E0E1DD;
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 30px auto;
             line-height: 1.8;
         }
         .btn {
             background-color: #4CC9F0;
             color: #0B132B;
-            padding: 15px 30px;
+            padding: 12px 28px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: inline-block;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
         }
         .btn:hover {
             background-color: #4361EE;
             color: #FFFFFF;
         }
+        .services-section {
+            padding: 60px 20px;
+            background-color: #0B132B;
+        }
+        .services-title {
+            color: #4CC9F0;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #1C2541;
+            border: 1px solid #3A506B;
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 300px;
+            text-align: right;
+            box-sizing: border-box;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #4CC9F0;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);
+        }
+        .card h3 {
+            color: #4CC9F0;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3A506B;
+            padding-bottom: 10px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #E0E1DD;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #4CC9F0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
         .guarantee {
             background-color: #1C2541;
-            padding: 50px 20px;
+            padding: 60px 20px;
             border-top: 3px solid #4CC9F0;
         }
         .guarantee h2 {
             color: #4CC9F0;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -60,7 +120,44 @@
     <section class="hero">
         <h1>لا نبني مجرد مواقع.. نحن نبرمج منظومات رقمية متكاملة</h1>
         <p>نجمع بين قوة تطبيقات الويب، ذكاء بوتات التليجرام والواتساب، والسيطرة الجغرافية على خرائط جوجل. حلول تقنية متكاملة مخصصة لنمو الشركات الناشئة والأنشطة التجارية في الخليج والعالم.</p>
-        <a href="#" class="btn">احجز استشارة نمو مجانية قريباً 🗓️</a>
+        <a href="#" class="btn">احجز استشارة نمو مجانية 🗓 extinction</a>
+    </section>
+
+    <section class="services-section">
+        <h2 class="services-title">حزم الحلول الرقمية المخصصة</h2>
+        <div class="container">
+            
+            <div class="card">
+                <div>
+                    <h3>Nexus Glow 🩺</h3>
+                    <p>منظومة أتمتة وحجوزات متكاملة لعيادات التجميل والليزر تعمل على مدار 24 ساعة. تطبيق مصغر داخل التليجرام يعرض الخدمات والأسعار، ويسمح للمراجعين بحجز المواعيد بدقة مع تهيئة جغرافية كاملة لخرائط جوجل.</p>
+                </div>
+                <div>
+                    <div class="price">750$ / لمرة واحدة</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Nexus Dine 🍔</h3>
+                    <p>انتزاع الصدارة في خرائط جوجل للمطاعم والمقاهي الفاخرة لضمان الظهور الأول محلياً، مع بناء تطبيق طلب مباشر ومصغر داخل التليجرام يتيح تصفح المنيو وإتمام الطلبات لتوفير عمولات التطبيقات الخارجية.</p>
+                </div>
+                <div>
+                    <div class="price">500$ / لمرة واحدة</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Nexus Lex ⚖️</h3>
+                    <p>منصة ويب مخصصة فائقة السرعة والأمان لمكاتب المحاماة والاستشارات الاستراتيجية تعكس فخامة المكتب، ومربوطة بنظام جدولة صارم وأتمتة كاملة لفلترة وتأكيد حجوزات الاستشارات القانونية.</p>
+                </div>
+                <div>
+                    <div class="price">1200$ / لمرة واحدة</div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <section class="guarantee">
@@ -70,4 +167,3 @@
 
 </body>
 </html>
-
