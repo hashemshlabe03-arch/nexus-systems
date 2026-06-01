@@ -3,249 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Digital Systems | المنظومة الرقمية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Nexus Systems | Ultimate Edition V4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #4CC9F0;
-            --secondary: #4361EE;
-            --bg: #0B132B;
-            --card-bg: rgba(28, 37, 65, 0.7);
+            --neon-blue: #4CC9F0;
+            --neon-purple: #7209B7;
+            --deep-blue: #0B132B;
+            --accent: #4361EE;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: var(--bg);
-            background-image: radial-gradient(circle at 10% 20%, rgba(76, 201, 240, 0.1) 0%, transparent 40%),
-                              radial-gradient(circle at 90% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 40%);
-            color: #FFFFFF;
+            background: var(--deep-blue);
+            color: white;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(76, 201, 240, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(114, 9, 183, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .app-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 130px;
+            box-sizing: border-box;
+        }
+
+        /* 1. شعار ذكي ومتحرك */
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+
+        .logo-frame {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            z-index: 1;
+        }
+
+        .main-logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 30px rgba(76, 201, 240, 0.5);
+            object-fit: cover;
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        .logo-frame::before {
+            content: '';
+            position: absolute;
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border-radius: 35px;
+            border: 2px dashed var(--neon-blue);
+            opacity: 0.3;
+            animation: spin 15s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes pulse-glow { 0% { transform: scale(1); box-shadow: 0 0 20px rgba(76, 201, 240, 0.4); } 100% { transform: scale(1.05); box-shadow: 0 0 40px rgba(76, 201, 240, 0.7); } }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin: 10px 0;
+            background: linear-gradient(90deg, #FFFFFF, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 2. عداد الثقة الحي */
+        .metrics-grid {
+            display: flex;
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .metric-item {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 15px;
+            flex: 1;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-item .num {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--neon-blue);
+        }
+
+        .metric-item .label {
+            font-size: 0.8rem;
+            color: #A4B3C6;
+            margin-top: 5px;
+        }
+
+        /* 3. ميزة الفحص الفوري (خارج الصندوق) */
+        .scan-section {
+            background: linear-gradient(145deg, rgba(76, 201, 240, 0.15), rgba(67, 97, 238, 0.05));
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .scan-section h4 {
+            margin: 0 0 10px 0;
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+        }
+
+        .scan-section p {
+            margin: 0 0 20px 0;
+            font-size: 0.9rem;
+            color: #E0E1DD;
             line-height: 1.6;
         }
 
-        /* Header & Logo */
-        header {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .logo-container {
-            width: 100px;
-            height: 100px;
-            background: rgba(76, 201, 240, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 20px rgba(76, 201, 240, 0.4);
-        }
-
-        .logo-container i {
-            font-size: 50px;
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(to left, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* 4. البطاقات المتفاعلة (Hover Effects) */
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 25px;
             margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #bdc3c7;
-            margin-bottom: 40px;
-        }
-
-        /* Floating Contact Buttons */
-        .contact-bar {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 10px 25px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .contact-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            transition: 0.3s;
-        }
-
-        .btn-whatsapp { background: #25D366; }
-        .btn-telegram { background: #0088cc; }
-        .btn-channel { background: var(--primary); }
-
-        .contact-btn:hover { transform: scale(1.2); }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .glass-card {
-            background: var(--card-bg);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: right;
-            transition: 0.4s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
+            text-align: right;
         }
 
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 5px;
-            background: var(--primary);
+        .service-card:active, .service-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--neon-blue);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(76, 201, 240, 0.15);
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-
-        .glass-card i {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
+        .card-icon {
+            font-size: 32px;
+            color: var(--neon-blue);
+            margin-bottom: 15px;
             display: block;
         }
 
-        .glass-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .price-tag {
-            display: inline-block;
+        .price-badge {
+            position: absolute;
+            top: 25px;
+            left: 25px;
             background: rgba(76, 201, 240, 0.2);
-            color: var(--primary);
+            color: var(--neon-blue);
             padding: 5px 15px;
-            border-radius: 10px;
+            border-radius: 12px;
+            font-family: 'Orbitron', sans-serif;
             font-weight: bold;
-            margin-top: 15px;
+            font-size: 0.9rem;
         }
 
-        /* Action Button */
-        .main-btn {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        /* 5. الأزرار السفلية العائمة الفائقة */
+        .bottom-nav {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 440px;
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border);
+            border-radius: 35px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+        }
+
+        .nav-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
+            font-size: 24px;
             transition: 0.3s;
+            background: var(--glass);
         }
 
-        .main-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(76, 201, 240, 0.6);
+        .nav-icon:hover { transform: scale(1.15) rotate(5deg); }
+        .whatsapp-bg { color: #25D366; }
+        .channel-bg { color: var(--neon-blue); }
+
+        .cta-button {
+            flex: 1;
+            margin: 0 15px;
+            background: linear-gradient(45deg, var(--accent), var(--neon-blue));
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
         }
 
-        /* Footer Guarantee */
+        /* Zero Risk Guarantee */
         .guarantee-box {
-            margin: 60px 20px 100px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 30px;
-            border: 1px dashed var(--primary);
+            border: 1px dashed var(--neon-blue);
+            background: rgba(76, 201, 240, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .glass-card { padding: 20px; }
-        }
+        .guarantee-box i { color: var(--neon-blue); font-size: 20px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <i class="fas fa-microchip"></i>
+    <div class="app-container">
+        <header>
+            <div class="logo-frame">
+                <img src="logo.png" alt="Nexus Logo" class="main-logo" onerror="this.src='https://via.placeholder.com/120/0B132B/4CC9F0?text=NS'">
+            </div>
+            <h1>NEXUS CORE</h1>
+            <p style="color: #8A99AD; font-weight: 300;">أتمتة الأعمال الجغرافية والذكاء الاصطناعي</p>
+        </header>
+
+        <div class="metrics-grid">
+            <div class="metric-item">
+                <span class="num" data-target="45">0</span>
+                <span class="label">منظومة ذكية</span>
+            </div>
+            <div class="metric-item">
+                <span class="num" data-target="99">0</span>
+                <span class="label">كفاءة الأداء %</span>
+            </div>
+            <div class="metric-item">
+                <span class="num" data-target="24">0</span>
+                <span class="label">دعم تقني</span>
+            </div>
         </div>
-        <h1>NEXUS DIGITAL SYSTEMS</h1>
-    </header>
 
-    <section class="hero">
-        <p>الجيل القادم من أنظمة أتمتة الأعمال والذكاء الاصطناعي في السوق الخليجي. نحن لا نصمم واجهات، نحن نصنع ماكينات لجلب الأرباح.</p>
-        <a href="https://t.me/hashem_shlabe03" class="main-btn">ابدأ رحلة النمو الآن</a>
-    </section>
+        <div class="scan-section">
+            <h4>فحص الخريطة الفوري مجاناً 🔍</h4>
+            <p>أرسل رابط منشأتك على خرائط جوجل، وسنرسل لك تقريراً مرئياً يوضح الثغرات التي تفقدك زبائنك يومياً لصالح منافسيك.</p>
+            <a href="https://t.me/hashem_shlabe03" style="color: var(--neon-blue); font-weight: bold; text-decoration: none;">اطلب التقرير المجاني الآن ←</a>
+        </div>
 
-    <div class="services-grid">
-        <div class="glass-card">
-            <i class="fas fa-stethoscope"></i>
+        <div class="service-card">
+            <span class="price-badge">$750</span>
+            <i class="fas fa-microchip card-icon"></i>
             <h3>Nexus Glow 🩺</h3>
-            <p>أتمتة كاملة لعيادات التجميل والليزر. بوت حجوزات ذكي يقلل ضغط السكرتارية ويزيد المبيعات بنسبة 40%.</p>
-            <div class="price-tag">750$ / نظام متكامل</div>
+            <p>حلول الأتمتة الشاملة لعيادات التجميل. بوتات حجوزات ذكية، متابعة مراجعات، ونظام ولاء لزيادة المبيعات تلقائياً.</p>
         </div>
 
-        <div class="glass-card">
-            <i class="fas fa-utensils"></i>
+        <div class="service-card">
+            <span class="price-badge">$500</span>
+            <i class="fas fa-map-marked-alt card-icon"></i>
             <h3>Nexus Dine 🍔</h3>
-            <p>السيطرة على خرائط جوجل للمطاعم. ظهورك الأول يعني زبائن أكثر وعمولات أقل لتطبيقات التوصيل.</p>
-            <div class="price-tag">500$ / نظام متكامل</div>
+            <p>نظام السيطرة على خرائط جوجل للمطاعم. نضمن ظهورك في النتائج الأولى لرفع عدد المكالمات والطلبات المباشرة.</p>
         </div>
 
-        <div class="glass-card">
-            <i class="fas fa-gavel"></i>
+        <div class="service-card">
+            <span class="price-badge">$1200</span>
+            <i class="fas fa-shield-alt card-icon"></i>
             <h3>Nexus Lex ⚖️</h3>
-            <p>الهيبة الرقمية لمكاتب المحاماة. موقع فخم ونظام فلترة للموكلين الجادين وتأمين بيانات عالي المستوى.</p>
-            <div class="price-tag">1200$ / نظام متكامل</div>
+            <p>الهيبة الرقمية لمكاتب المحاماة. نظام فلترة للموكلين الجادين، جدولة استشارات آمنة، وأتمتة كاملة للعقود.</p>
+        </div>
+
+        <div class="guarantee-box">
+            <i class="fas fa-check-circle"></i>
+            <h4 style="margin: 5px 0;">ضمان الأداء الموثوق</h4>
+            <p style="font-size: 0.85rem; color: #92A3B7; margin: 0;">نحن نبني الحلول أولاً.. والدفع يتم بعد رؤية النتائج الملموسة بعينيك.</p>
         </div>
     </div>
 
-    <section class="guarantee-box">
-        <h3>شراكة الأمان التام 🛡️</h3>
-        <p>نحن نعمل بمبدأ الثقة المتبادلة. للخدمات السريعة، نقوم بالتنفيذ أولاً، وبعد رؤية النتائج الملموسة والتوثيق، نتمم المعاملة المالية. نجاحك هو وقود استمرارنا.</p>
-    </section>
-
-    <div class="contact-bar">
-        <a href="https://t.me/hashem_shlabe03" class="contact-btn btn-telegram" title="محادثة خاصة"><i class="fab fa-telegram-plane"></i></a>
-        <a href="https://wa.me/YOUR_PHONE_NUMBER" class="contact-btn btn-whatsapp" title="واتساب"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://t.me/YOUR_CHANNEL" class="contact-btn btn-channel" title="قناة الشركة"><i class="fas fa-bullhorn"></i></a>
+    <div class="bottom-nav">
+        <a href="https://wa.me/218XXXXXXXXX" class="nav-icon whatsapp-bg" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/hashem_shlabe03" class="cta-button">حجز استشارة مبيعات</a>
+        <a href="https://t.me/YOUR_CHANNEL" class="nav-icon channel-bg" title="القناة الرسمية"><i class="fas fa-bullhorn"></i></a>
     </div>
 
+    <script>
+        // كود تحريك العدادات عند الفتح
+        const counters = document.querySelectorAll('.num');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const speed = 200; 
+                const inc = target / speed;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 15);
+                } else {
+                    counter.innerText = target + (target === 45 || target === 24 ? '+' : '');
+                }
+            };
+            updateCount();
+        });
+    </script>
 </body>
 </html>
