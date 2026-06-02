@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Systems | Ultimate Edition V4</title>
+    <title>Nexus Systems | Omnichannel v4.5</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -13,6 +13,7 @@
             --deep-blue: #0B132B;
             --accent: #4361EE;
             --glass: rgba(255, 255, 255, 0.03);
+            --glass-hover: rgba(255, 255, 255, 0.08);
             --border: rgba(255, 255, 255, 0.08);
         }
 
@@ -24,8 +25,8 @@
             padding: 0;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 0% 0%, rgba(76, 201, 240, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(114, 9, 183, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 0% 0%, rgba(76, 201, 240, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(114, 9, 183, 0.12) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -37,64 +38,72 @@
             box-sizing: border-box;
         }
 
-        /* 1. شعار ذكي ومتحرك */
+        /* شعار ذكي محاط بهالة متوهجة */
         header {
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 30px 0 20px;
         }
 
         .logo-frame {
             position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
             z-index: 1;
         }
 
         .main-logo {
             width: 100%;
             height: 100%;
-            border-radius: 30px;
+            border-radius: 28px;
             border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 30px rgba(76, 201, 240, 0.5);
+            box-shadow: 0 0 25px rgba(76, 201, 240, 0.4);
             object-fit: cover;
             animation: pulse-glow 3s infinite alternate;
         }
 
-        .logo-frame::before {
+        .logo-frame::after {
             content: '';
             position: absolute;
-            top: -8px; left: -8px; right: -8px; bottom: -8px;
-            border-radius: 35px;
-            border: 2px dashed var(--neon-blue);
-            opacity: 0.3;
-            animation: spin 15s linear infinite;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border-radius: 32px;
+            border: 1px dashed rgba(76, 201, 240, 0.3);
+            animation: spin 25s linear infinite;
         }
 
         @keyframes spin { 100% { transform: rotate(360deg); } }
-        @keyframes pulse-glow { 0% { transform: scale(1); box-shadow: 0 0 20px rgba(76, 201, 240, 0.4); } 100% { transform: scale(1.05); box-shadow: 0 0 40px rgba(76, 201, 240, 0.7); } }
+        @keyframes pulse-glow { 0% { transform: scale(1); box-shadow: 0 0 20px rgba(76, 201, 240, 0.4); } 100% { transform: scale(1.04); box-shadow: 0 0 35px rgba(76, 201, 240, 0.6); } }
 
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin: 10px 0;
+            font-weight: 800;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+            margin: 10px 0 5px;
             background: linear-gradient(90deg, #FFFFFF, var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* 2. عداد الثقة الحي */
+        .tagline {
+            font-size: 0.95rem;
+            color: #8A99AD;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        /* عداد الثقة الحي */
         .metrics-grid {
             display: flex;
-            gap: 12px;
-            margin: 30px 0;
+            gap: 10px;
+            margin: 25px 0;
         }
 
         .metric-item {
             background: var(--glass);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 15px;
+            border-radius: 16px;
+            padding: 12px;
             flex: 1;
             text-align: center;
             backdrop-filter: blur(10px);
@@ -103,144 +112,254 @@
         .metric-item .num {
             display: block;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--neon-blue);
         }
 
         .metric-item .label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #A4B3C6;
-            margin-top: 5px;
+            margin-top: 3px;
         }
 
-        /* 3. ميزة الفحص الفوري (خارج الصندوق) */
-        .scan-section {
-            background: linear-gradient(145deg, rgba(76, 201, 240, 0.15), rgba(67, 97, 238, 0.05));
-            border: 1px solid rgba(76, 201, 240, 0.3);
-            border-radius: 25px;
-            padding: 25px;
-            margin-bottom: 30px;
+        /* ميزة الفحص الفوري */
+        .scan-banner {
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.15), rgba(67, 97, 238, 0.05));
+            border: 1px solid rgba(76, 201, 240, 0.25);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .scan-section h4 {
-            margin: 0 0 10px 0;
+        .scan-banner h4 {
+            margin: 0 0 8px 0;
             color: var(--neon-blue);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        .scan-section p {
-            margin: 0 0 20px 0;
-            font-size: 0.9rem;
-            color: #E0E1DD;
-            line-height: 1.6;
+        .scan-banner p {
+            margin: 0 0 15px 0;
+            font-size: 0.85rem;
+            color: #D1DBE5;
+            line-height: 1.5;
         }
 
-        /* 4. البطاقات المتفاعلة (Hover Effects) */
-        .service-card {
+        /* عناوين الأقسام */
+        .section-title {
+            font-size: 1.1rem;
+            color: #8A99AD;
+            margin: 25px 5px 15px;
+            border-right: 3px solid var(--neon-blue);
+            padding-right: 10px;
+            font-weight: bold;
+        }
+
+        /* البطاقات المتفاعلة المتوهجة (Hover Effects) */
+        .system-card {
             background: var(--glass);
             border: 1px solid var(--border);
-            border-radius: 25px;
-            padding: 25px;
-            margin-bottom: 20px;
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 18px;
             backdrop-filter: blur(15px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            text-align: right;
         }
 
-        .service-card:active, .service-card:hover {
-            background: rgba(255, 255, 255, 0.08);
+        .system-card:active, .system-card:hover {
+            background: var(--glass-hover);
             border-color: var(--neon-blue);
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(76, 201, 240, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.12);
         }
 
         .card-icon {
-            font-size: 32px;
+            width: 45px;
+            height: 45px;
+            background: rgba(76, 201, 240, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--neon-blue);
+            font-size: 20px;
             margin-bottom: 15px;
-            display: block;
+        }
+
+        .system-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .system-card p {
+            margin: 0 0 12px 0;
+            font-size: 0.88rem;
+            color: #D1DBE5;
+            line-height: 1.5;
+        }
+
+        /* قائمة الخدمات التفصيلية داخل الباقات */
+        .services-included {
+            margin: 0;
+            padding-right: 20px;
+            font-size: 0.82rem;
+            color: #A4B3C6;
+        }
+
+        .services-included li {
+            margin-bottom: 5px;
         }
 
         .price-badge {
             position: absolute;
-            top: 25px;
-            left: 25px;
-            background: rgba(76, 201, 240, 0.2);
+            top: 22px;
+            left: 22px;
+            background: rgba(76, 201, 240, 0.15);
             color: var(--neon-blue);
-            padding: 5px 15px;
-            border-radius: 12px;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
             font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            font-size: 0.9rem;
         }
 
-        /* 5. الأزرار السفلية العائمة الفائقة */
+        /* تصميم القسم الرابع: الخدمات الفردية المخصصة */
+        .custom-services-grid {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        .custom-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .custom-item:last-child { border-bottom: none; }
+
+        .custom-item i {
+            color: var(--neon-blue);
+            font-size: 14px;
+            background: rgba(76, 201, 240, 0.05);
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-item span {
+            font-size: 0.88rem;
+            color: #E0E1DD;
+        }
+
+        .custom-cta {
+            display: block;
+            background: rgba(255,255,255,0.04);
+            border: 1px dashed var(--neon-blue);
+            color: var(--neon-blue);
+            text-align: center;
+            padding: 12px;
+            border-radius: 15px;
+            margin-top: 15px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .custom-cta:active, .custom-cta:hover {
+            background: rgba(76, 201, 240, 0.1);
+        }
+
+        .shield-box {
+            background: linear-gradient(rgba(255,255,255,0.01), rgba(255,255,255,0.03));
+            border: 1px dashed var(--border);
+            border-radius: 18px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .shield-box span {
+            color: var(--neon-blue);
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .shield-box p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #92A3B7;
+        }
+
+        /* الأزرار العائمة الفائقة */
         .bottom-nav {
             position: fixed;
-            bottom: 25px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: calc(100% - 40px);
             max-width: 440px;
             background: rgba(11, 19, 43, 0.85);
-            backdrop-filter: blur(25px);
             border: 1px solid var(--border);
-            border-radius: 35px;
-            padding: 12px;
+            backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            z-index: 10000;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            z-index: 9999;
         }
 
-        .nav-icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
+        .nav-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 24px;
-            transition: 0.3s;
+            font-size: 22px;
+            transition: all 0.3s;
             background: var(--glass);
         }
 
-        .nav-icon:hover { transform: scale(1.15) rotate(5deg); }
-        .whatsapp-bg { color: #25D366; }
-        .channel-bg { color: var(--neon-blue); }
+        .nav-link:hover { transform: scale(1.1); }
+        .link-whatsapp { color: #25D366; }
+        .link-channel { color: var(--neon-blue); }
 
-        .cta-button {
-            flex: 1;
-            margin: 0 15px;
+        .cta-pulse {
             background: linear-gradient(45deg, var(--accent), var(--neon-blue));
             color: white;
             text-decoration: none;
-            padding: 15px;
-            border-radius: 25px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
-        }
-
-        /* Zero Risk Guarantee */
-        .guarantee-box {
-            border: 1px dashed var(--neon-blue);
-            background: rgba(76, 201, 240, 0.05);
+            padding: 12px 24px;
             border-radius: 20px;
-            padding: 20px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+            transition: 0.3s;
+            flex: 1;
+            margin: 0 12px;
             text-align: center;
-            margin-top: 20px;
         }
 
-        .guarantee-box i { color: var(--neon-blue); font-size: 20px; margin-bottom: 10px; }
+        .cta-pulse:hover {
+            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.6);
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -248,85 +367,25 @@
     <div class="app-container">
         <header>
             <div class="logo-frame">
-                <img src="logo.png" alt="Nexus Logo" class="main-logo" onerror="this.src='https://via.placeholder.com/120/0B132B/4CC9F0?text=NS'">
+                <img src="logo.png" alt="Nexus Systems Logo" class="main-logo" onerror="this.src='https://via.placeholder.com/110/0B132B/4CC9F0?text=NEXUS'">
             </div>
             <h1>NEXUS CORE</h1>
-            <p style="color: #8A99AD; font-weight: 300;">أتمتة الأعمال الجغرافية والذكاء الاصطناعي</p>
+            <p class="tagline">الوكالة الشاملة للأتمتة الذكية والتشغيل الرقمي للمبيعات</p>
         </header>
 
         <div class="metrics-grid">
             <div class="metric-item">
                 <span class="num" data-target="45">0</span>
-                <span class="label">منظومة ذكية</span>
+                <span class="label">منظومة نشطة</span>
             </div>
             <div class="metric-item">
                 <span class="num" data-target="99">0</span>
-                <span class="label">كفاءة الأداء %</span>
+                <span class="label">كفاءة تشغيل %</span>
             </div>
             <div class="metric-item">
                 <span class="num" data-target="24">0</span>
-                <span class="label">دعم تقني</span>
+                <span class="label">تحكم سحابي</span>
             </div>
         </div>
 
-        <div class="scan-section">
-            <h4>فحص الخريطة الفوري مجاناً 🔍</h4>
-            <p>أرسل رابط منشأتك على خرائط جوجل، وسنرسل لك تقريراً مرئياً يوضح الثغرات التي تفقدك زبائنك يومياً لصالح منافسيك.</p>
-            <a href="https://t.me/hashem_shlabe03" style="color: var(--neon-blue); font-weight: bold; text-decoration: none;">اطلب التقرير المجاني الآن ←</a>
-        </div>
-
-        <div class="service-card">
-            <span class="price-badge">$750</span>
-            <i class="fas fa-microchip card-icon"></i>
-            <h3>Nexus Glow 🩺</h3>
-            <p>حلول الأتمتة الشاملة لعيادات التجميل. بوتات حجوزات ذكية، متابعة مراجعات، ونظام ولاء لزيادة المبيعات تلقائياً.</p>
-        </div>
-
-        <div class="service-card">
-            <span class="price-badge">$500</span>
-            <i class="fas fa-map-marked-alt card-icon"></i>
-            <h3>Nexus Dine 🍔</h3>
-            <p>نظام السيطرة على خرائط جوجل للمطاعم. نضمن ظهورك في النتائج الأولى لرفع عدد المكالمات والطلبات المباشرة.</p>
-        </div>
-
-        <div class="service-card">
-            <span class="price-badge">$1200</span>
-            <i class="fas fa-shield-alt card-icon"></i>
-            <h3>Nexus Lex ⚖️</h3>
-            <p>الهيبة الرقمية لمكاتب المحاماة. نظام فلترة للموكلين الجادين، جدولة استشارات آمنة، وأتمتة كاملة للعقود.</p>
-        </div>
-
-        <div class="guarantee-box">
-            <i class="fas fa-check-circle"></i>
-            <h4 style="margin: 5px 0;">ضمان الأداء الموثوق</h4>
-            <p style="font-size: 0.85rem; color: #92A3B7; margin: 0;">نحن نبني الحلول أولاً.. والدفع يتم بعد رؤية النتائج الملموسة بعينيك.</p>
-        </div>
-    </div>
-
-    <div class="bottom-nav">
-        <a href="https://wa.me/218XXXXXXXXX" class="nav-icon whatsapp-bg" title="واتساب"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://t.me/hashem_shlabe03" class="cta-button">حجز استشارة مبيعات</a>
-        <a href="https://t.me/YOUR_CHANNEL" class="nav-icon channel-bg" title="القناة الرسمية"><i class="fas fa-bullhorn"></i></a>
-    </div>
-
-    <script>
-        // كود تحريك العدادات عند الفتح
-        const counters = document.querySelectorAll('.num');
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const speed = 200; 
-                const inc = target / speed;
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 15);
-                } else {
-                    counter.innerText = target + (target === 45 || target === 24 ? '+' : '');
-                }
-            };
-            updateCount();
-        });
-    </script>
-</body>
-</html>
+        <div class="scan-banner">
