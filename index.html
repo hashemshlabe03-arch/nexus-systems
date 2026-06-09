@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Systems | Omnichannel v5.0</title>
+    <title>Nexus Systems | Omnichannel v6.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -38,7 +38,6 @@
             box-sizing: border-box;
         }
 
-        /* شعار ذكي محاط بهالة متوهجة */
         header {
             text-align: center;
             padding: 30px 0 20px;
@@ -92,7 +91,6 @@
             font-weight: 300;
         }
 
-        /* عداد الثقة الحي */
         .metrics-grid {
             display: flex;
             gap: 10px;
@@ -123,7 +121,6 @@
             margin-top: 3px;
         }
 
-        /* ميزة الفحص الفوري */
         .scan-banner {
             background: linear-gradient(135deg, rgba(76, 201, 240, 0.15), rgba(67, 97, 238, 0.05));
             border: 1px solid rgba(76, 201, 240, 0.25);
@@ -146,10 +143,10 @@
             line-height: 1.5;
         }
 
-        /* زر تحميل دليل الخدمات الفاخر المضاف حديثاً */
-        .catalog-download-box {
-            background: linear-gradient(135deg, rgba(114, 9, 183, 0.2), rgba(76, 201, 240, 0.05));
-            border: 1px solid rgba(114, 9, 183, 0.4);
+        /* زر فتح الكتالوج التفاعلي المنبثق الجديد */
+        .catalog-trigger-box {
+            background: linear-gradient(135deg, rgba(114, 9, 183, 0.25), rgba(76, 201, 240, 0.08));
+            border: 1px solid rgba(114, 9, 183, 0.5);
             border-radius: 20px;
             padding: 18px;
             margin-bottom: 25px;
@@ -157,36 +154,23 @@
             align-items: center;
             justify-content: space-between;
             gap: 15px;
-            box-shadow: 0 8px 25px rgba(114, 9, 183, 0.15);
+            box-shadow: 0 8px 25px rgba(114, 9, 183, 0.2);
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .catalog-download-box:hover {
+        .catalog-trigger-box:hover {
             border-color: var(--neon-blue);
-            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.2);
+            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3);
         }
 
-        .catalog-info {
-            text-align: right;
-        }
+        .catalog-info { text-align: right; }
+        .catalog-info h5 { margin: 0 0 4px 0; font-size: 1rem; color: #FFFFFF; font-weight: 700; }
+        .catalog-info p { margin: 0; font-size: 0.78rem; color: #A4B3C6; }
 
-        .catalog-info h5 {
-            margin: 0 0 4px 0;
-            font-size: 1rem;
-            color: #FFFFFF;
-            font-weight: 700;
-        }
-
-        .catalog-info p {
-            margin: 0;
-            font-size: 0.78rem;
-            color: #A4B3C6;
-        }
-
-        .btn-download {
+        .btn-open-catalog {
             background: linear-gradient(45deg, var(--neon-purple), var(--accent));
             color: white;
-            text-decoration: none;
             padding: 10px 16px;
             border-radius: 14px;
             font-size: 0.85rem;
@@ -195,228 +179,112 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 4px 15px rgba(114, 9, 183, 0.4);
-            transition: 0.3s;
         }
 
-        .btn-download:active, .btn-download:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.4);
+        /* تصميم اللوحة الزجاجية المنبثقة للكتالوج الشامل */
+        .catalog-modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(11, 19, 43, 0.95);
+            backdrop-filter: blur(25px);
+            z-index: 99999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            overflow-y: auto;
+            padding: 20px;
         }
 
-        /* عناوين الأقسام */
-        .section-title {
-            font-size: 1.1rem;
+        .catalog-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-header {
+            max-width: 460px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(11, 19, 43, 0.95);
+            z-index: 10;
+        }
+
+        .modal-title { font-size: 1.1rem; font-weight: bold; color: var(--neon-blue); }
+        .close-modal { background: var(--glass); border: 1px solid var(--border); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; }
+        .close-modal:hover { background: rgba(255,0,0,0.2); border-color: #FF4D4D; }
+
+        .modal-content-wrapper {
+            max-width: 460px;
+            margin: 20px auto 50px auto;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .intro-card h6 { margin: 0 0 10px 0; font-size: 1.1rem; color: #fff; }
+        .intro-card p { margin: 0; font-size: 0.88rem; color: #D1DBE5; line-height: 1.6; }
+
+        .modal-section-title {
+            font-size: 1rem;
             color: #8A99AD;
-            margin: 25px 5px 15px;
-            border-right: 3px solid var(--neon-blue);
+            margin: 25px 0 15px;
+            border-right: 3px solid var(--neon-purple);
             padding-right: 10px;
             font-weight: bold;
         }
 
-        /* البطاقات المتفاعلة المتوهجة (Hover Effects) */
-        .system-card {
+        .service-detail-card {
             background: var(--glass);
             border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 22px;
-            margin-bottom: 18px;
-            backdrop-filter: blur(15px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .system-card:active, .system-card:hover {
-            background: var(--glass-hover);
-            border-color: var(--neon-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.12);
-        }
-
-        .card-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(76, 201, 240, 0.08);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--neon-blue);
-            font-size: 20px;
+            border-radius: 18px;
+            padding: 18px;
             margin-bottom: 15px;
         }
+        .service-detail-card h7 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; color: var(--neon-blue); font-weight: bold; margin-bottom: 8px; }
+        .service-detail-card h7 i { color: var(--neon-purple); }
+        .service-detail-card p { margin: 0 0 10px 0; font-size: 0.85rem; color: #E0E1DD; line-height: 1.5; }
+        .service-detail-card ul { margin: 0; padding-right: 20px; font-size: 0.8rem; color: #A4B3C6; }
+        .service-detail-card ul li { margin-bottom: 4px; }
 
-        .system-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
+        .section-title { font-size: 1.1rem; color: #8A99AD; margin: 25px 5px 15px; border-right: 3px solid var(--neon-blue); padding-right: 10px; font-weight: bold; }
 
-        .system-card p {
-            margin: 0 0 12px 0;
-            font-size: 0.88rem;
-            color: #D1DBE5;
-            line-height: 1.5;
-        }
+        .system-card { background: var(--glass); border: 1px solid var(--border); border-radius: 22px; padding: 22px; margin-bottom: 18px; backdrop-filter: blur(15px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+        .system-card:active, .system-card:hover { background: var(--glass-hover); border-color: var(--neon-blue); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(76, 201, 240, 0.12); }
+        .card-icon { width: 45px; height: 45px; background: rgba(76, 201, 240, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--neon-blue); font-size: 20px; margin-bottom: 15px; }
+        .system-card h3 { margin: 0 0 10px 0; font-size: 1.25rem; font-weight: 700; }
+        .system-card p { margin: 0 0 12px 0; font-size: 0.88rem; color: #D1DBE5; line-height: 1.5; }
+        .services-included { margin: 0; padding-right: 20px; font-size: 0.82rem; color: #A4B3C6; }
+        .services-included li { margin-bottom: 5px; }
+        .price-badge { position: absolute; top: 22px; left: 22px; background: rgba(76, 201, 240, 0.15); color: var(--neon-blue); padding: 4px 12px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; font-family: 'Orbitron', sans-serif; }
 
-        /* قائمة الخدمات التفصيلية داخل الباقات */
-        .services-included {
-            margin: 0;
-            padding-right: 20px;
-            font-size: 0.82rem;
-            color: #A4B3C6;
-        }
-
-        .services-included li {
-            margin-bottom: 5px;
-        }
-
-        .price-badge {
-            position: absolute;
-            top: 22px;
-            left: 22px;
-            background: rgba(76, 201, 240, 0.15);
-            color: var(--neon-blue);
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        /* تصميم القسم الرابع: الخدمات الفردية المخصصة */
-        .custom-services-grid {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 20px;
-            margin-bottom: 18px;
-        }
-
-        .custom-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-        }
-
+        .custom-services-grid { background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border); border-radius: 22px; padding: 20px; margin-bottom: 18px; }
+        .custom-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
         .custom-item:last-child { border-bottom: none; }
+        .custom-item i { color: var(--neon-blue); font-size: 14px; background: rgba(76, 201, 240, 0.05); width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .custom-item span { font-size: 0.88rem; color: #E0E1DD; }
+        .custom-cta { display: block; background: rgba(255,255,255,0.04); border: 1px dashed var(--neon-blue); color: var(--neon-blue); text-align: center; padding: 12px; border-radius: 15px; margin-top: 15px; text-decoration: none; font-size: 0.88rem; font-weight: bold; transition: 0.3s; }
+        .custom-cta:active, .custom-cta:hover { background: rgba(76, 201, 240, 0.1); }
 
-        .custom-item i {
-            color: var(--neon-blue);
-            font-size: 14px;
-            background: rgba(76, 201, 240, 0.05);
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .shield-box { background: linear-gradient(rgba(255,255,255,0.01), rgba(255,255,255,0.03)); border: 1px dashed var(--border); border-radius: 18px; padding: 15px; text-align: center; margin-top: 25px; }
+        .shield-box span { color: var(--neon-blue); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .shield-box p { margin: 0; font-size: 0.8rem; color: #92A3B7; }
 
-        .custom-item span {
-            font-size: 0.88rem;
-            color: #E0E1DD;
-        }
-
-        .custom-cta {
-            display: block;
-            background: rgba(255,255,255,0.04);
-            border: 1px dashed var(--neon-blue);
-            color: var(--neon-blue);
-            text-align: center;
-            padding: 12px;
-            border-radius: 15px;
-            margin-top: 15px;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .custom-cta:active, .custom-cta:hover {
-            background: rgba(76, 201, 240, 0.1);
-        }
-
-        .shield-box {
-            background: linear-gradient(rgba(255,255,255,0.01), rgba(255,255,255,0.03));
-            border: 1px dashed var(--border);
-            border-radius: 18px;
-            padding: 15px;
-            text-align: center;
-            margin-top: 25px;
-        }
-
-        .shield-box span {
-            color: var(--neon-blue);
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .shield-box p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: #92A3B7;
-        }
-
-        /* الأزرار العائمة الفائقة */
-        .bottom-nav {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 40px);
-            max-width: 440px;
-            background: rgba(11, 19, 43, 0.85);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(20px);
-            border-radius: 28px;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            z-index: 9999;
-        }
-
-        .nav-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 22px;
-            transition: all 0.3s;
-            background: var(--glass);
-        }
-
+        .bottom-nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: calc(100% - 40px); max-width: 440px; background: rgba(11, 19, 43, 0.85); border: 1px solid var(--border); backdrop-filter: blur(20px); border-radius: 28px; padding: 10px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); z-index: 9999; }
+        .nav-link { width: 50px; height: 50px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 22px; transition: all 0.3s; background: var(--glass); }
         .nav-link:hover { transform: scale(1.1); }
         .link-whatsapp { color: #25D366; }
         .link-channel { color: var(--neon-blue); }
-
-        .cta-pulse {
-            background: linear-gradient(45deg, var(--accent), var(--neon-blue));
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.92rem;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
-            transition: 0.3s;
-            flex: 1;
-            margin: 0 12px;
-            text-align: center;
-        }
-
-        .cta-pulse:hover {
-            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.6);
-            transform: scale(1.02);
-        }
+        .cta-pulse { background: linear-gradient(45deg, var(--accent), var(--neon-blue)); color: white; text-decoration: none; padding: 12px 24px; border-radius: 20px; font-weight: 700; font-size: 0.92rem; box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4); transition: 0.3s; flex: 1; margin: 0 12px; text-align: center; }
+        .cta-pulse:hover { box-shadow: 0 6px 20px rgba(76, 201, 240, 0.6); transform: scale(1.02); }
     </style>
 </head>
 <body>
@@ -431,18 +299,9 @@
         </header>
 
         <div class="metrics-grid">
-            <div class="metric-item">
-                <span class="num" data-target="45">0</span>
-                <span class="label">منظومة نشطة</span>
-            </div>
-            <div class="metric-item">
-                <span class="num" data-target="99">0</span>
-                <span class="label">كفاءة تشغيل %</span>
-            </div>
-            <div class="metric-item">
-                <span class="num" data-target="24">0</span>
-                <span class="label">تحكم سحابي</span>
-            </div>
+            <div class="metric-item"><span class="num" data-target="45">0</span><span class="label">منظومة نشطة</span></div>
+            <div class="metric-item"><span class="num" data-target="99">0</span><span class="label">كفاءة تشغيل %</span></div>
+            <div class="metric-item"><span class="num" data-target="24">0</span><span class="label">تحكم سحابي</span></div>
         </div>
 
         <div class="scan-banner">
@@ -451,14 +310,14 @@
             <a href="https://t.me/hashem_shlabe03" style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; text-decoration: none;">اطلب فحص مشروعك الآن ←</a>
         </div>
 
-        <div class="catalog-download-box">
+        <div class="catalog-trigger-box" onclick="openCatalog()">
             <div class="catalog-info">
-                <h5>كتالوج الخدمات الشامل 2026 📖</h5>
-                <p>تصفّح بالتفصيل الهندسة التشغيلية وآلية العمل لكل خدمة</p>
+                <h5>تصفّح دليل الخدمات الشامل 2026 📖</h5>
+                <p>اضغط لعرض الهندسة التشغيلية وآلية العمل لكل خدمة فوراً</p>
             </div>
-            <a href="guide.pdf" class="btn-download" download="Nexus_Core_Catalog_2026.pdf">
-                <i class="fas fa-file-pdf"></i> تحميل PDF
-            </a>
+            <div class="btn-open-catalog">
+                تصفح الآن <i class="fas fa-bolt"></i>
+            </div>
         </div>
 
         <div class="section-title">الباقات التشغيلية الشاملة</div>
@@ -502,7 +361,7 @@
             </ul>
         </div>
 
-        <div class="section-title">القسم الرابع: الهندسة الرقمية والخدمات المخصصة</div>
+        <div class="section-title">الهندسة الرقمية والخدمات المخصصة</div>
         <div class="custom-services-grid">
             <div class="custom-item"><i class="fas fa-paint-brush"></i><span>1. تصميم المنشورات والهويات البصرية الاحترافية</span></div>
             <div class="custom-item"><i class="fas fa-pen-nib"></i><span>2. كتابة المحتوى التسويقي والإبداعي للمناشير</span></div>
@@ -513,7 +372,6 @@
             <div class="custom-item"><i class="fas fa-terminal"></i><span>7. إنشاء وتطوير بوتات العمل المؤتمتة لتسهيل العمليات التشغيلية</span></div>
             <div class="custom-item"><i class="fas fa-bullhorn"></i><span>8. إنشاء قنوات تليجرام خاصة بالمشاريع وربطها بالكامل مع أنظمة الرد</span></div>
             <div class="custom-item"><i class="fas fa-ad"></i><span>9. إطلاق وإدارة الحملات الإعلانية الممولة (فيسبوك، إنستغرام، واتساب)</span></div>
-            
             <a href="https://t.me/hashem_shlabe03" class="custom-cta">اضغط هنا لطلب تسعير خدمتك المخصصة 📊</a>
         </div>
 
@@ -523,16 +381,92 @@
         </div>
     </div>
 
+    <div id="catalogModal" class="catalog-modal">
+        <div class="modal-header">
+            <span class="modal-title"><i class="fas fa-folder-open"></i> كتالوج خدمات Nexus Core الشامل</span>
+            <div class="close-modal" onclick="closeCatalog()"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="modal-content-wrapper">
+            <div class="intro-card">
+                <h6>رسالة تعريفية 🎯</h6>
+                <p>نحن لا نقدم خدمة منفصلة... بل نبني تجربة متكاملة للعميل. في السوق الحالي لم يعد كافياً امتلاك منتج جيد، مشروعك بحاجة إلى منظومة رقمية مترابطة تجعل العميل يعرفك، يثق بك، ثم يشتري بسهولة.</p>
+            </div>
+
+            <div class="modal-section-title">تفاصيل الحلول التشغيلية ⚙️</div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-palette"></i> 01. الهوية البصرية وصناعة الصورة الذهنية</h7>
+                <p>نجعل مشروعك يبدو أكثر احترافية من أول نظرة لتعزيز الثقة وتقليل التردد لدى العميل.</p>
+                <ul>
+                    <li>تصميم الشعار وبناء النسخ المناسبة لاستخداماته.</li>
+                    <li>اختيار الألوان والخطوط التي تعكس شخصية المشروع.</li>
+                    <li>إعداد دليل هوية مختصر وقوالب سوشيال ميديا جاهزة.</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-pen-fancy"></i> 02. المحتوى التسويقي وإدارة الرسائل الرقمية</h7>
+                <p>نرتب ما تقوله علامتك وكيف تقوله، ليشرح القيمة ويقود العميل نحو الطلب أو الحجز.</p>
+                <ul>
+                    <li>بناء خطة محتوى شهرية أو مرحلية منظمة.</li>
+                    <li>كتابة نصوص تعريفية، بيعية، وسيناريوهات فيديو بيعية.</li>
+                    <li>تنظيم نبرة الخطاب لتكون ثابتة وقوية عبر المنصات.</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-laptop-code"></i> 03. المواقع الإلكترونية وصفحات الهبوط</h7>
+                <p>نصمم حضورك الرقمي ليعمل كواجهة بيع حقيقية تقود العميل خطوة بخطوة نحو الإجراء المباشر.</p>
+                <ul>
+                    <li>مواقع تعريفية للشركات تعرض القيمة بشكل منظم.</li>
+                    <li>صفحات هبوط مخصصة للحملات لرفع معدل التحويل.</li>
+                    <li>تصميم متجاوب بالكامل مع الهاتف وسريع وسهل الاستخدام.</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-robot"></i> 04. الأتمتة الذكية وبوتات الأعمال 24/7</h7>
+                <p>نقلل العمل اليدوي المتكرر، نسرع الاستجابة، ونضمن عدم ضياع أي عميل محتمل بين الرسائل.</p>
+                <ul>
+                    <li>الرد على الأسئلة الشائعة وفلترة العملاء الجادين فوراً.</li>
+                    <li>تنظيم واستقبال العملاء وتوجيههم للأقسام الصحيحة.</li>
+                    <li>إدارة الحجوزات، المواعيد، والإشعارات التلقائية الذكية.</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-mobile-alt"></i> 05. Telegram Mini Apps والحلول المخصصة</h7>
+                <p>نحول تطبيق تليجرام إلى تجربة استخدام متكاملة أقرب للتطبيقات المستقلة لتسهيل الطلب.</p>
+                <ul>
+                    <li>تطوير ميني أب بواجهات منظمة لعرض الخدمات والمنيو.</li>
+                    <li>إدراج نماذج حجز سريعة وسلسة وربطها بلوحات التحكم.</li>
+                    <li>تقديم تجربة حديثة ترفع معدلات البيع وتوحي بالاحتراف التام.</li>
+                </ul>
+            </div>
+
+            <a href="https://t.me/hashem_shlabe03" class="custom-cta" style="border-color: var(--neon-purple); color: #fff; background: rgba(114, 9, 183, 0.1);">اغلق الكتالوج وابدأ معنا الآن 🚀</a>
+        </div>
+    </div>
+
     <div class="bottom-nav">
         <a href="https://wa.me/218921350500" class="nav-link link-whatsapp" target="_blank" title="مراسلة واتساب مباشر"><i class="fab fa-whatsapp"></i></a>
-        
         <a href="https://t.me/hashem_shlabe03" class="cta-pulse">حجز استشارة مبيعات</a>
-        
         <a href="https://t.me/Bahaa_AlMalikiyyah" class="nav-link link-channel" target="_blank" title="قناة الشركة الرسمية"><i class="fas fa-broadcast-tower"></i></a>
     </div>
 
     <script>
-        // كود تشغيل العدادات المتحركة آلياً
+        // فتح وإغلاق النافذة المنبثقة
+        function openCatalog() {
+            document.getElementById('catalogModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // منع تمرير الخلفية أثناء تصفح الدليل
+        }
+
+        function closeCatalog() {
+            document.getElementById('catalogModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // كود العدادات
         const counters = document.querySelectorAll('.num');
         counters.forEach(counter => {
             const updateCount = () => {
