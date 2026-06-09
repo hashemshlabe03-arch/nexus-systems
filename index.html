@@ -282,7 +282,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 0 20px rgba(189, 0, 255, 0.5);
+            box-shadow: 0 0 20px rgba(189, 0, 255, 0.4);
             animation: btnGlow 2s infinite alternate;
         }
 
@@ -490,7 +490,6 @@
             transform: translateX(-3px);
         }
 
-        /* زر الإجراء الشامل المطور */
         .cta-premium-cyber {
             display: flex;
             align-items: center;
@@ -531,92 +530,79 @@
         .shield-cyber-box span { color: var(--neon-blue); font-weight: 700; font-size: 0.95rem; display: block; margin-bottom: 6px; text-shadow: var(--text-glow); }
         .shield-cyber-box p { margin: 0; font-size: 0.82rem; color: #8da2c4; line-height: 1.5; }
 
-        /* [تعديل جوهري] الواجهات المنبثقة المحسنة بالخلفيات النيونية الزجاجية الفاخرة */
+        /* تليين وتجميل النوافذ المنبثقة الشفافة (ترقية الخلفية الزجاجية النيونية) */
         .catalog-modal {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 15%, rgba(13, 25, 54, 0.82) 0%, rgba(4, 7, 16, 0.96) 100%);
-            backdrop-filter: blur(25px) saturate(160%);
-            -webkit-backdrop-filter: blur(25px) saturate(160%);
+            background: radial-gradient(circle at 50% 30%, rgba(13, 25, 52, 0.92) 0%, rgba(6, 10, 22, 0.96) 100%);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
             z-index: 99999;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             overflow-y: auto;
             padding: 20px;
-            border: 1px solid rgba(0, 240, 255, 0.05);
         }
         .catalog-modal.active { opacity: 1; pointer-events: auto; }
         
         .modal-header {
             max-width: 450px; margin: 0 auto;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 10px; border-bottom: 1px solid rgba(0, 240, 255, 0.15);
-            position: sticky; top: 0; 
-            background: rgba(8, 14, 30, 0.4);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            z-index: 10;
-            border-radius: 0 0 16px 16px;
+            padding: 20px 0; border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+            position: sticky; top: 0; background: rgba(6, 10, 22, 0.4); 
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 10;
         }
-        .modal-title { font-size: 1.05rem; font-weight: 700; color: var(--neon-blue); text-shadow: var(--text-glow); }
+        .modal-title { font-size: 1.1rem; font-weight: 700; color: var(--neon-blue); text-shadow: var(--text-glow); }
         
         .close-modal {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;
             width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: 0.3s;
         }
-        .close-modal:hover { background: rgba(255, 0, 127, 0.2); border-color: var(--neon-pink); box-shadow: 0 0 12px var(--neon-pink); }
+        .close-modal:hover { background: rgba(255, 0, 127, 0.2); border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); }
         
         .modal-wrapper { max-width: 450px; margin: 25px auto 60px; }
 
-        /* كروت وتفاصيل داخلية مدمجة بالخلفيات الفاخرة الجديدة */
         .info-panel {
-            background: linear-gradient(145deg, rgba(0, 240, 255, 0.05), rgba(189, 0, 255, 0.02));
-            border: 1px solid rgba(0, 240, 255, 0.12);
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(189, 0, 255, 0.03));
+            border: 1px solid rgba(0, 240, 255, 0.15);
             border-radius: 24px; padding: 22px; margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        .info-panel h6 { margin: 0 0 12px; font-size: 1.1rem; color: #fff; font-weight: 700; border-bottom: 1px solid rgba(0, 240, 255, 0.1); padding-bottom: 10px; }
+        .info-panel h6 { margin: 0 0 12px; font-size: 1.1rem; color: #fff; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
         .info-panel p { margin: 0 0 18px; font-size: 0.9rem; color: #cddbf0; line-height: 1.6; }
 
         .sub-grid-goals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .goal-node { background: rgba(6, 11, 23, 0.6); border: 1px solid rgba(0, 240, 255, 0.08); border-radius: 16px; padding: 12px; }
+        .goal-node { background: rgba(6, 9, 19, 0.6); border: 1px solid rgba(0, 240, 255, 0.1); border-radius: 16px; padding: 12px; }
         .goal-node strong { font-size: 0.85rem; color: var(--neon-blue); display: block; margin-bottom: 5px; }
         .goal-node span { font-size: 0.78rem; color: #9bb0cf; line-height: 1.4; display: block; }
 
-        .modal-sub-title { font-size: 1.15rem; color: #fff; margin: 35px 0 20px; border-right: 4px solid var(--neon-purple); padding-right: 12px; font-weight: 700; text-shadow: 0 0 10px rgba(189, 0, 255, 0.3); }
+        .modal-sub-title { font-size: 1.15rem; color: #fff; margin: 35px 0 20px; border-right: 4px solid var(--neon-purple); padding-right: 12px; font-weight: 700; }
 
         .detail-card-cyber {
-            background: rgba(14, 23, 47, 0.55); border: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(145deg, rgba(10, 20, 40, 0.4), rgba(6, 9, 19, 0.6));
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 24px; padding: 22px; margin-bottom: 22px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
         }
         .detail-card-cyber h5 { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; color: var(--neon-blue); font-weight: 700; margin: 0 0 14px 0; }
-        .detail-card-cyber p { margin: 0 0 15px 0; font-size: 0.88rem; color: #cddbf0; line-height: 1.6; background: rgba(5, 9, 21, 0.5); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); }
+        .detail-card-cyber p { margin: 0 0 15px 0; font-size: 0.88rem; color: #cddbf0; line-height: 1.6; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); }
         
         .bullets-label { font-size: 0.82rem; color: #7991b5; font-weight: 700; margin-bottom: 8px; display: block; }
         .detail-card-cyber ul { margin: 0 0 18px 0; padding-right: 18px; font-size: 0.85rem; color: #b4c7e7; line-height: 1.6; }
         .detail-card-cyber ul li { margin-bottom: 6px; list-style-type: square; }
         
-        .impact-strip { background: rgba(0, 240, 255, 0.04); border-left: 3px solid var(--neon-blue); padding: 10px 14px; border-radius: 0 12px 12px 0; }
-        .impact-strip strong { font-size: 0.8rem; color: var(--neon-blue); display: block; margin-bottom: 3px; }
+        .impact-strip { background: rgba(189, 0, 255, 0.05); border-right: 3px solid var(--neon-purple); padding: 10px 14px; border-radius: 12px 0 0 12px; }
+        .impact-strip strong { font-size: 0.8rem; color: var(--neon-purple); display: block; margin-bottom: 3px; text-shadow: 0 0 5px rgba(189,0,255,0.3); }
         .impact-strip span { font-size: 0.8rem; color: #a4badb; line-height: 1.4; display: block; }
 
-        .cta-action-modal-btn {
+        .modal-action-btn {
             display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
-            color: #fff; font-weight: 700; text-decoration: none; padding: 16px;
-            border-radius: 20px; text-align: center; font-size: 0.95rem; margin-top: 25px;
-            box-shadow: 0 4px 20px rgba(189, 0, 255, 0.4); transition: 0.3s;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: #fff; padding: 16px; border-radius: 20px; font-weight: 700;
+            text-decoration: none; font-size: 0.95rem; margin-top: 25px;
+            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.3); transition: 0.3s;
         }
-        .cta-action-modal-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(255, 0, 127, 0.6); }
-
-        .cta-dashed-close {
-            display: block; text-align: center; padding: 14px; border: 1px dashed rgba(255,255,255,0.2);
-            color: #a4badb; border-radius: 18px; text-decoration: none; font-size: 0.9rem; margin-top: 15px; cursor: pointer; transition: 0.3s;
-        }
-        .cta-dashed-close:hover { background: rgba(255,255,255,0.04); color: #fff; }
+        .modal-action-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--neon-purple); }
 
         /* شريط الحوار السفلي */
         .bottom-cyber-nav {
@@ -752,7 +738,7 @@
         <div class="section-title-cyber">الهندسة الرقمية والخدمات المخصصة</div>
         
         <div class="cyber-services-grid">
-            <div onclick="openModal('service1Modal')" class="service-node-card">
+            <div onclick="openModal('srv1Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-palette"></i></div>
                 <div class="node-meta">
                     <span class="node-title">تصميم الهويات البصرية والبراندنج</span>
@@ -761,7 +747,7 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service2Modal')" class="service-node-card">
+            <div onclick="openModal('srv2Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-pen-nib"></i></div>
                 <div class="node-meta">
                     <span class="node-title">هندسة وصياغة المحتوى البيعي</span>
@@ -770,7 +756,7 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service3Modal')" class="service-node-card">
+            <div onclick="openModal('srv3Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-comments"></i></div>
                 <div class="node-meta">
                     <span class="node-title">الإدارة والتشغيل الكامل للمنصات</span>
@@ -779,7 +765,7 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service4Modal')" class="service-node-card">
+            <div onclick="openModal('srv4Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-map-pin"></i></div>
                 <div class="node-meta">
                     <span class="node-title">السيطرة المحلية عبر خرائط Google</span>
@@ -788,7 +774,7 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service5Modal')" class="service-node-card">
+            <div onclick="openModal('srv5Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-laptop-code"></i></div>
                 <div class="node-meta">
                     <span class="node-title">تطوير المواقع وصفحات الهبوط</span>
@@ -797,7 +783,7 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service6Modal')" class="service-node-card">
+            <div onclick="openModal('srv6Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-robot"></i></div>
                 <div class="node-meta">
                     <span class="node-title">تطوير تطبيقات تليجرام المصغرة</span>
@@ -806,7 +792,7 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service7Modal')" class="service-node-card">
+            <div onclick="openModal('srv7Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-terminal"></i></div>
                 <div class="node-meta">
                     <span class="node-title">أنظمة الرد الذكي والأتمتة السحابية</span>
@@ -815,7 +801,7 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service8Modal')" class="service-node-card">
+            <div onclick="openModal('srv8Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-share-alt"></i></div>
                 <div class="node-meta">
                     <span class="node-title">بناء المجتمعات الرقمية والقنوات</span>
@@ -824,10 +810,10 @@
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
             </div>
 
-            <div onclick="openModal('service9Modal')" class="service-node-card">
+            <div onclick="openModal('srv9Modal')" class="service-node-card">
                 <div class="node-icon-core"><i class="fas fa-ad"></i></div>
                 <div class="node-meta">
-                    <span class="node-title">إطلاق وإدارة الحملات الممولة المستهدفة</span>
+                    <span class="node-title">إطلاق وإدارة الحملات الممولة</span>
                     <span class="node-desc">إعلانات Meta ممشوقة الميزانية للوصول لرواد الأعمال والمهتمين.</span>
                 </div>
                 <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
@@ -852,37 +838,24 @@
         <div class="modal-wrapper">
             <div class="info-panel">
                 <h6>آلية الحوكمة والأتمتة الطبية 🩺</h6>
-                <p>عيادات التجميل تفقد شهرياً ما يقارب 40% من مبيعاتها لثلاثة أسباب: تأخر الرد البشري على إنستغرام، عدم انضباط مواعيد الحجوزات، وضياع المريض بين جلسة الرتوش والجلسة الأساسية. نظامنا يتدخل برمجياً لتنظيم وحماية خط المبيعات بالكامل.</p>
+                <p>عيادات التجميل تفقد شهرياً ما يقارب 40% من مبيعاتها لثلاثة أسباب: تأخر الرد البشري على إنستغرام، عدم انضباط مواعيد الحجوزات، وضياع المريض بين جلسة الرتوش والجلسة الأساسية.</p>
             </div>
-
             <div class="detail-card-cyber">
                 <h5><i class="fas fa-route"></i> الخطوات التنفيذية بالتفصيل</h5>
                 <ul>
-                    <li><strong>المرحلة 1:</strong> تصميم الهوية الذهنية والفوتوغرافية وتجهيز صور وفيديوهات لخدمات العيادة (فيلر، بوتوكس، ليزر) ونشرها بشكل يعكس النظافة والأمان الطبي.</li>
-                    <li><strong>المرحلة 2:</strong> بناء منظومة Telegram Mini App متكاملة ومربوطة بنظام حجز مواعيد حيوي، بحيث يدخل المريض يختار الطبيب، التخصص، والوقت بدقة وبلمسة إصبع.</li>
-                    <li><strong>المرحلة 3:</strong> أتمتة الرد على رسائل التعليقات والخاص في إنستغرام وفيسبوك، وتحويل أي استفسار عن السعر مباشرة للبوت لإتمام الحجز فوراً دون انتظار موظف الاستقبال.</li>
-                    <li><strong>المرحلة 4:</strong> إطلاق حملات إعلانية ممولة تستهدف النطاق الجغرافي للعيادة بدقة مع تقديم عرض افتتاحي أو موسمى جاذب للجمهور المستهدف.</li>
+                    <li>تصميم الهوية الذهنية والفوتوغرافية وتجهيز صور وفيديوهات لخدمات العيادة.</li>
+                    <li>بناء منظومة Telegram Mini App متكاملة ومربوطة بنظام حجز مواعيد حيوي.</li>
+                    <li>أتمتة الرد على رسائل التعليقات والخاص في إنستغرام وفيسبوك.</li>
                 </ul>
             </div>
-
             <div class="detail-card-cyber">
-                <h5><i class="fas fa-triangle-exclamation"></i> التحديات وحلول Nexus</h5>
-                <p><strong>التحدي:</strong> هدر جلسات الرتوش ونسيان المرضى للمواعيد مما يسبب فراغاً في جدول الأطباء.<br>
-                <strong>الحل النكسوسي:</strong> بوت تذكير ذكي وتلقائي يرسل إشعارات مخصصة للمريض عبر تليجرام/واتساب قبل موعده بـ 24 ساعة لتأكيد أو تعديل الحجز سحابياً.</p>
-            </div>
-
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-chart-line"></i> التحليلات ومصفوفة النتائج المتوقعة</h5>
+                <h5><i class="fas fa-chart-line"></i> المصفوفة المتوقعة</h5>
                 <div class="impact-strip">
                     <strong>النتائج المستهدفة:</strong>
-                    <span>- تصفير هدر المواعيد الضائعة بنسبة 90%.<br>
-                    - رفع مبيعات الباقات التجميلية عبر إعادة استهداف المرضى الحاليين تلقائياً.<br>
-                    - سرعة رد واستجابة للعملاء الجدد بمعدل 0.4 ثانية على مدار الساعة.</span>
+                    <span>تصفير هدر المواعيد الضائعة بنسبة 90% ورفع مبيعات الباقات بشكل فوري.</span>
                 </div>
             </div>
-
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20منظومة%20Nexus%20Glow" class="cta-action-modal-btn" target="_blank">طلب منظومة Nexus Glow الآن <i class="fas fa-bolt"></i></a>
-            <div onclick="closeModal('glowModal')" class="cta-dashed-close">إغلاق والعودة ✖️</div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20باقة:%20Nexus%20Glow" class="modal-action-btn" target="_blank">بدء تفعيل بروتوكول الباقة الآن ←</a>
         </div>
     </div>
 
@@ -894,37 +867,23 @@
         <div class="modal-wrapper">
             <div class="info-panel">
                 <h6>آلية التحرر والسيطرة الجغرافية 🍔</h6>
-                <p>المطاعم تقع تحت مقصلة عمولات تطبيقات التوصيل الضخمة (التي تصل لـ 30%) أو تموت جغرافياً لعدم ظهورها للباحثين عن الطعام في محيطها. باقة Nexus Dine تأخذ بيدك للتحكم التام بزبائنك المباشرين وتصدّر المشهد المحلي.</p>
+                <p>المطاعم تقع تحت مقصلة عمولات تطبيقات التوصيل الضخمة (التي تصل لـ 30%) أو تموت جغرافياً لعدم ظهورها للباحثين عن الطعام في محيطها.</p>
             </div>
-
             <div class="detail-card-cyber">
                 <h5><i class="fas fa-tasks"></i> الخطوات التنفيذية للسيطرة</h5>
                 <ul>
-                    <li><strong>المرحلة 1:</strong> تهيئة واحتلال خرائط جوجل (Google Maps SEO) بالكلمات المفتاحية الأكثر بحثاً (مثال: أفضل مطعم برجر في طرابلس) لتظهر منشأتك في النتيجة الأولى مجاناً.</li>
-                    <li><strong>المرحلة 2:</strong> تحويل المنيو الورقي أو الـ PDF الميت إلى "منيو ذكي تفاعلي" كامل داخل Telegram Mini App، يستطيع الزبون تصفحه، اختيار الإضافات، تحديد موقع التوصيل، والطلب كأنه تطبيق مستقل تماماً.</li>
-                    <li><strong>المرحلة 3:</strong> إنتاج صناعة محتوى إبداعي وجاذب (Reels/TikTok) يركز على جودة الطعام وخلف الكواليس لشهية المشاهد، وربطه بنظام رد فوري يرسل المنيو الآلي لمن يعلق بكلمة "تم".</li>
-                    <li><strong>المرحلة 4:</strong> إطلاق إعلانات ممولة محلية شديدة الاستهداف بنطاق 3 إلى 5 كم محيط بالمطعم فقط في أوقات الذروة والغداء.</li>
+                    <li>تهيئة واحتلال خرائط جوجل (Google Maps SEO) بالكلمات المفتاحية الأكثر بحثاً.</li>
+                    <li>تحويل المنيو الورقي الميت إلى "منيو ذكي تفاعلي" كامل داخل Telegram Mini App.</li>
                 </ul>
             </div>
-
             <div class="detail-card-cyber">
-                <h5><i class="fas fa-exclamation-circle"></i> التحديات وحلول Nexus</h5>
-                <p><strong>التحدي:</strong> ضغط طلبات المبيعات وقت الذروة عبر الهاتف والواتساب مما يسبب أخطاء في تدوين العناوين وضياع زبائن.<br>
-                <strong>الحل النكسوسي:</strong> البوت يتلقى الطلبات بالكامل، ينظمها، يستخرج إحداثيات موقع الزبون بدقة GPS، ويرسلها فوراً في شاشة إدارة خاصة بالمطعم أو الكابتن لضمان تصفير الأخطاء البشرية.</p>
-            </div>
-
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-chart-pie"></i> التحليلات ومصفوفة النتائج المتوقعة</h5>
+                <h5><i class="fas fa-chart-pie"></i> مصفوفة العائد</h5>
                 <div class="impact-strip">
                     <strong>النتائج المستهدفة:</strong>
-                    <span>- توفير آلاف الدينارات المهدورة في عمولات تطبيقات الطرف الثالث.<br>
-                    - زيادة حركة الزوار والزبائن الجغرافيين المباشرين للمنشأة بنسبة تزيد عن 35%.<br>
-                    - بناء قاعدة بيانات ضخمة لهواتف وحسابات الزبائن لإعادة استهدافهم بعروض الويكيند مجاناً.</span>
+                    <span>توفير آلاف الدينارات من عمولات تطبيقات الطرف الثالث وزيادة زوار المنشأة 35%.</span>
                 </div>
             </div>
-
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20منظومة%20Nexus%20Dine" class="cta-action-modal-btn" target="_blank">طلب منظومة Nexus Dine الآن <i class="fas fa-bolt"></i></a>
-            <div onclick="closeModal('dineModal')" class="cta-dashed-close">إغلاق والعودة ✖️</div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20باقة:%20Nexus%20Dine" class="modal-action-btn" target="_blank">بدء تفعيل بروتوكول الباقة الآن ←</a>
         </div>
     </div>
 
@@ -936,37 +895,23 @@
         <div class="modal-wrapper">
             <div class="info-panel">
                 <h6>آلية الهيبة والفلترة السحابية ⚖️</h6>
-                <p>مكاتب المحاماة والاستشارات الكبرى لا تحتاج لزوار عشوائيين، بل تحتاج لهيبة رقمية تعكس الرصانة والموثوقية المطلقة، مع أتمتة دقيقة لفلترة الموكلين الجادين والشركات قبل تضييع وقت المستشار الثمين في مكالمات لا طائل منها.</p>
+                <p>مكاتب المحاماة والاستشارات الكبرى تحتاج لهيبة رقمية تعكس الرصانة والموثوقية المطلقة، مع أتمتة دقيقة لفلترة الموكلين الجادين.</p>
             </div>
-
             <div class="detail-card-cyber">
                 <h5><i class="fas fa-cogs"></i> الخطوات التنفيذية والاستراتيجية</h5>
                 <ul>
-                    <li><strong>المرحلة 1:</strong> تطوير موقع إلكتروني تعريفي رسمي متكامل بأعلى معايير الحماية والتصميم الفاخر، يعرض نجاحات المكتب، التخصصات القانونية، والشركاء بشكل مهيب.</li>
-                    <li><strong>المرحلة 2:</strong> بناء بوت حوكمة ذكي لتحديد الاستشارات مدمج بالتليجرام، يقوم بطرح أسئلة تمهيدية على العميل لفلترة القضية وتحديد نوعها وجمع المستندات الأولية سحابياً.</li>
-                    <li><strong>المرحلة 3:</strong> إعداد وإدارة حسابات التواصل على المنصات المهنية والرسمية (LinkedIn, X, Facebook) من خلال محتوى قانوني رصين يبرز ثقل وخبرة المكتب.</li>
-                    <li><strong>المرحلة 4:</strong> حملات إعلانية احترافية تستهدف رواد الأعمال، أصحاب العقارات، ومؤسسي الشركات لطلب صياغة العقود والاستشارات السنوية الحامية للمنشآت.</li>
+                    <li>تطوير موقع إلكتروني تعريفي رسمي متكامل بأعلى معايير الحماية والتصميم الفاخر.</li>
+                    <li>بناء بوت حوكمة ذكي لتحديد الاستشارات القانونية وتجميع الملفات سحابياً.</li>
                 </ul>
             </div>
-
             <div class="detail-card-cyber">
-                <h5><i class="fas fa-shield-halved"></i> التحديات وحلول Nexus</h5>
-                <p><strong>التحدي:</strong> هدر ساعات عمل مكاتب المحاماة في الإجابة على استشارات مجانية أو غير جادة عبر الهاتف.<br>
-                <strong>الحل النكسوسي:</strong> تحويل نظام الاستشارات بالكامل لنظام دفع مسبق وتأكيد حجز آلي؛ لا يتم تمرير موعد العميل للمستشار إلا بعد استيفاء البيانات ورفع المتطلبات بالبوت.</p>
-            </div>
-
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-gauge-high"></i> التحليلات ومصفوفة النتائج المتوقعة</h5>
+                <h5><i class="fas fa-gauge-high"></i> مصفوفة العائد</h5>
                 <div class="impact-strip">
                     <strong>النتائج المستهدفة:</strong>
-                    <span>- رفع القيمة السوقية والذهنية للمكتب أمام كبار الموكلين والشركات.<br>
-                    - تنظيم وجدولة أوقات الاستشارات والملفات القانونية بنسبة انضباط 100%.<br>
-                    - توجيه الطاقات البشرية لإنهاء القضايا بدلاً من إدارة الاتصالات والمواعيد يدوياً.</span>
+                    <span>رفع القيمة السوقية للمكتب وتنظيم الحجوزات المدفوعة آلياً بنسبة انضباط 100%.</span>
                 </div>
             </div>
-
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20منظومة%20Nexus%20Lex" class="cta-action-modal-btn" target="_blank">طلب منظومة Nexus Lex الآن <i class="fas fa-bolt"></i></a>
-            <div onclick="closeModal('lexModal')" class="cta-dashed-close">إغلاق والعودة ✖️</div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20باقة:%20Nexus%20Lex" class="modal-action-btn" target="_blank">بدء تفعيل بروتوكول الباقة الآن ←</a>
         </div>
     </div>
 
@@ -978,196 +923,250 @@
         <div class="modal-wrapper">
             <div class="info-panel">
                 <h6>رسالة تعريفية من فريق Nexus Core 🎯</h6>
-                <p>نحن لا نقدم خدمات مجزأة أو حلولاً مؤقتة؛ في Nexus Core، نحن مهندسو أنظمة تشغيل المبيعات. رؤيتنا مبنية على مفهوم "قمع المبيعات المحكم وعالي التحويل". السوشيال ميديا والتصاميم ليست مجرد زينة، بل هي أدوات لجمع الانتباه، والبوتات والأنظمة ليست مجرد ردود آلية، بل هي الفخ البرمجي الذكي الذي يمنع العميل المهتم من الإفلات أو الخروج دون اتخاذ قرار. نحن نربط الجذب بالأتمتة لنصنع ماكينة نمو مستدام لمشروعك.</p>
+                <p>نحن لا نقدم خدمات مجزأة؛ في Nexus Core، نحن مهندسو أنظمة تشغيل المبيعات. رؤيتنا مبنية على مفهوم "قمع المبيعات المحكم وعالي التحويل". نربط الجذب بالأتمتة لنصنع ماكينة نمو مستدام لمشروعك.</p>
                 <div class="sub-grid-goals">
-                    <div class="goal-node"><strong>01 جذب وحسم الانتباه</strong><span>صناعة محتوى وهوية بصرية تجبر العميل المستهدف على التوقف وفهم عرضك فوراً.</span></div>
-                    <div class="goal-node"><strong>02 تصفير هدر المبيعات</strong><span>بوتات وأنظمة رد فوري فائقة الاستجابة تقتنص الزبون وتغلق الصفقة في ثوانٍ.</span></div>
-                    <div class="goal-node"><strong>03 بناء الأصول الرقمية</strong><span>تحويل المتابعين المؤقتين إلى قاعدة بيانات حية (إيميلات، هواتف، حسابات تليجرام).</span></div>
-                    <div class="goal-node"><strong>04 السيطرة المحلية الكاملة</strong><span>الهيمنة على محركات البحث والخرائط لجلب العملاء الجغرافيين بأقل تكلفة تشغيلية.</span></div>
+                    <div class="goal-node"><strong>01 جذب الانتباه</strong><span>صناعة محتوى وهوية تجبر العميل المستهدف على التوقف وفهم عرضك.</span></div>
+                    <div class="goal-node"><strong>02 تصفير الهدر</strong><span>بوتات وأنظمة رد فوري تقتنص الزبون وتغلق الصفقة في ثوانٍ.</span></div>
                 </div>
             </div>
-            <div onclick="closeModal('catalogModal')" class="cta-dashed-close">إغلاق والعودة للواجهة الرئيسية 🚀</div>
+            <div class="modal-sub-title">نظام الهندسة الشامل ⚙️</div>
+            <p style="font-size: 0.9rem; color: #a4badb; text-align: center;">اضغط على أي خدمة مباشرة من الواجهة الرئيسية لعرض تشريحها البرمجي وطلبها الفوري مسبق النص.</p>
+            <div onclick="closeModal('catalogModal')" class="modal-action-btn" style="background: var(--neon-purple);">إغلاق الدليل والعودة للرئيسية 🚀</div>
         </div>
     </div>
 
 
-    <div id="service1Modal" class="catalog-modal">
+    <div id="srv1Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-palette"></i> تصميم الهويات البصرية والبراندنج</span>
-            <div class="close-modal" onclick="closeModal('service1Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv1Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>بناء وتطوير لغة بصرية متكاملة لمشروعك، تبدأ من تصميم الشعار (Logo) والأيقونات، وصولاً إلى تحديد لوحة الألوان الرسمية والخطوط الفاخرة.</p>
-                <ul>
-                    <li>تصميم قوالب منشورات ثابتة ومنظمة يسهل التعرف عليها فوراً.</li>
-                    <li>تنسيق كامل لشبكة حسابك (Instagram Grid) بأعلى جودة.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>بناء جدار فوري من الثقة الذهنية ترفع من القيمة السوقية لمنتجاتك وعروضك.</span></div>
+            <div class="info-panel">
+                <h6>بناء الجدار الفوري من الثقة الذهنية 🎨</h6>
+                <p>نقوم بإنشاء وتطوير لغة بصرية متكاملة لمشروعك تبدأ من تصميم الشعار والأيقونات وتحديد لوحة الألوان الرسمية التي تعكس شخصية وقوة البراند.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تصميم%20الهويات%20البصرية" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service1Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>تصميم شعار فريد بأبعاد هندسية متناسقة وقابل للتكبير.</li>
+                    <li>قوالب منشورات ثابتة ومنظمة (Grid Layout) لحسابات التواصل.</li>
+                    <li>تحديد خطوط الطباعة والعرض الرقمي الموحدة للمشروع.</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>العميل يربط فخامة احترافية التصميم بجودة الخدمة والمنتج تلقائياً.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تصميم%20الهويات%20البصرية" class="modal-action-btn" target="_blank">طلب هندسة الهوية الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service2Modal" class="catalog-modal">
+    <div id="srv2Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-pen-nib"></i> هندسة وصياغة المحتوى البيعي</span>
-            <div class="close-modal" onclick="closeModal('service2Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv2Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>نصيغ محتوى يعتمد على الأنماط السيكولوجية الحادة للمشتري عبر أطر معتمدة مثل (AIDA) و (PAS) لكتابة الإعلانات والمنشورات الجاذبة.</p>
-                <ul>
-                    <li>صياغة عناوين تمنع العميل المستهدف من التمرير وتجبره على القراءة.</li>
-                    <li>إبراز المزايا التنافسية لخدماتك وتحويلها إلى حلول مباشرة لمشاكل الزبون.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>تحويل حسابك إلى كاتب مبيعات محترف ومقنع يبني النهم لمنتجاتك.</span></div>
+            <div class="info-panel">
+                <h6>صياغة الكلمات التي تفتح المحافظ والقلوب ✍️</h6>
+                <p>نحن لا نكتب نصوصاً عادية، بل نصيغ محتوى يعتمد على الأنماط السيكولوجية للمشتري عبر أطر كتابة متطورة لإجبار الزبون على اتخاذ إجراء بيعي.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20هندسة%20وصياغة%20المحتوى%20البيعي" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service2Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول?</h5>
+                <ul>
+                    <li>كتابة نصوص الإعلانات الممولة عالية التحويل (Copywriting).</li>
+                    <li>صناعة محتوى قصصي وتفاعلي (Storytelling) لبناء الولاء.</li>
+                    <li>صياغة عبارات واضحة لطلب الخدمة والتحويل المالي (CTA).</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>تحويل الحساب من مجرد لوحة صور صامتة إلى آلة حوار تقنع وتبيع.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20هندسة%20وصياغة%20المحتوى" class="modal-action-btn" target="_blank">طلب هندسة النصوص الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service3Modal" class="catalog-modal">
+    <div id="srv3Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-comments"></i> الإدارة والتشغيل الكامل للمنصات</span>
-            <div class="close-modal" onclick="closeModal('service3Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv3Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>يتولى فريقنا مهام الإدارة الكاملة اليومية لمنصاتك الرقمية لضمان النمو العضوي وبقاء منشأتك حية ومتفاعلة.</p>
-                <ul>
-                    <li>جدولة ونشر المحتوى في أوقات الذروة الجغرافية لجمهورك بدقة.</li>
-                    <li>مراقبة مستمرة للتفاعل وفلترة وتوجيه الاستفسارات الساخنة للمبيعات.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>تفريغ وقتك لإدارة منشأتك من الداخل، مع ضمان تسيير الواجهة الخارجية بأعلى كفاءة.</span></div>
+            <div class="info-panel">
+                <h6>التواجد المستمر والنشط لحماية المبيعات 📊</h6>
+                <p>يتولى فريقنا الفني مهام الإدارة التشغيلية اليومية لمنصاتك بالكامل لضمان تفاعل دائم واقتناص فوري للعملاء المهتمين بالتعليقات.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20الإدارة%20والتشغيل%20الكامل%20للمنصات" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service3Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>جدولة ونشر المحتوى في أوقات الذروة لضمان أعلى وصول طبيعي.</li>
+                    <li>مراقبة تعليقات الحسابات وتوجيه الاستفسارات الساخنة للمبيعات.</li>
+                    <li>تحليل فوري أسبوعي لحجم النمو ونشاط الحسابات.</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>تفريغ وقتك للتركيز على جودة مشروعك وترك تشغيل الواجهة للخبراء.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20الإدارة%20والتشغيل%20الكامل" class="modal-action-btn" target="_blank">بدء تشغيل المنصات الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service4Modal" class="catalog-modal">
+    <div id="srv4Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-map-pin"></i> السيطرة المحلية عبر خرائط Google</span>
-            <div class="close-modal" onclick="closeModal('service4Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv4Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>نخترق نتائج البحث الجغرافي (Local SEO). نضع منشأتك على الخرائط، نوثقها، ونهيئها بالكلمات المفتاحية الأكثر بحثاً.</p>
-                <ul>
-                    <li>الظهور في نتائج البحث الثلاث الأولى لجوجل (Google Map Pack) مجاناً.</li>
-                    <li>بناء استراتيجية حية لجلب وتثبيت التقييمات الإيجابية لطرد المنافسين.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>تدفق يومي مستمر ومجاني للعملاء المتواجدين حالياً في محيطك والجاهزين للشراء فوراً.</span></div>
+            <div class="info-panel">
+                <h6>احتلال النتائج الجغرافية الأولى مجاناً 📍</h6>
+                <p>نخترق نتائج البحث المحلية (Local SEO). نضع منشأتك على خرائط جوجل لتبتسم لك الصدارة فوراً لمن يبحث عن خدماتك في محيطك.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20السيطرة%20المحلية%20عبر%20خرائط%20Google" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service4Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>إضافة وتوثيق منشأتك بشكل قانوني على الخريطة وسيو سليم.</li>
+                    <li>استهداف وتوزيع الكلمات المفتاحية الأكثر بحثاً وجلباً للزوار.</li>
+                    <li>بناء استراتيجية حية لرفع التقييمات الإيجابية لطرد المنافسين.</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>سيل مستمر ومجاني تماماً من زبائن الشارع والمحيط الفعليين.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20السيطرة%20عبر%20الخرائط" class="modal-action-btn" target="_blank">تفعيل السيو المحلي الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service5Modal" class="catalog-modal">
+    <div id="srv5Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-laptop-code"></i> تطوير المواقع وصفحات الهبوط</span>
-            <div class="close-modal" onclick="closeModal('service5Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv5Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>برمجة وتطوير واجهات تعريفية سريعة جداً ومحمية بشهادات أمان (SSL)، ومخصصة لتوجيه الحملات الإعلانية دون تشتيت عميلك.</p>
-                <ul>
-                    <li>لوحة تحكم كاملة ومرنة تتيح لك تعديل النصوص والأسعار بمرونة كاملة.</li>
-                    <li>تصميم متجاوب بنسبة 100% مع الهواتف الذكية وتجربة تصفح فائقة السلاسة.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>امتلاك عقار رقمي رسمي يضمن لك الاستقلالية التامة عن قيود السوشيال ميديا وشروطها المجحفة.</span></div>
+            <div class="info-panel">
+                <h6>المقر الرقمي الرسمي والسيادي للمشروع 🌐</h6>
+                <p>نبرمج واجهات برمجية سريعة ومتجاوبة بالكامل لرفع معدل التحويل البيعي لأقصى درجة، وموجهة لإنجاح الحملات الإعلانية.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تطوير%20المواقع%20وصفحات%20الهبوط" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service5Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>برمجة شفرات حديثة ونظيفة خالية من البطء مع شهادات أمان SSL.</li>
+                    <li>تصميم واجهات تعريفية تركز على إقناع العميل وتسهيل الطلب.</li>
+                    <li>لوحة تحكم مرنة وسهلة لإدارة وتعديل محتوى موقعك بنفسك.</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>امتلاك أصل رقمي رسمي ومستقر يرفع هيبتك ومصداقيتك أمام الشركات.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تطوير%20المواقع" class="modal-action-btn" target="_blank">برمجة موقعك الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service6Modal" class="catalog-modal">
+    <div id="srv6Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-robot"></i> تطوير تطبيقات تليجرام المصغرة</span>
-            <div class="close-modal" onclick="closeModal('service6Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv6Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>نبرمج واجهات تفاعلية كاملة (Telegram Mini Apps) تعمل بداخل تطبيق التليجرام كأنها تطبيق مستقل، لعرض المنيو أو حجز المواعيد والخدمات.</p>
-                <ul>
-                    <li>سلة مشتريات ذكية مدمجة لحساب الإجمالي والخيارات الإضافية بلمسات إصبع.</li>
-                    <li>العمل بسرعة فائقة دون حاجة الزبون لتحميل أي تطبيقات خارجية ثقيلة.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>تسهيل الطلب بنسبة 5 أضعاف مقارنة بالطرق التقليدية، مما يقفز بمعدل المبيعات.</span></div>
+            <div class="info-panel">
+                <h6>ثورة الـ Mini Apps داخل هاتف الزبون 📱</h6>
+                <p>نحول تليجرام إلى متصفح ونظام تشغيل مخصص لعرض المنيو والخدمات وحجز المواعيد بلمسات خفيفة دون مغادرة المحادثة.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تطوير%20تطبيقات%20تليجرام%20المصغرة" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service6Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>بناء وتطوير واجهات Telegram Mini App مخصصة للمشروع خفيفة جداً.</li>
+                    <li>ربط سحابي تفاعلي مع قواعد البيانات ونظام سلة مشتريات ذكي.</li>
+                    <li>إتاحة الطلب المباشر الفوري مع إرسال إحداثيات الموقع وتأكيد الحجز.</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>تجربة حجز وطلب أسرع بـ 5 مرات من المواقع العادية لتصفير هدر المبيعات.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تطوير%20تطبيقات%20تليجرام" class="modal-action-btn" target="_blank">بناء الميني أب الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service7Modal" class="catalog-modal">
+    <div id="srv7Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-terminal"></i> أنظمة الرد الذكي والأتمتة السحابية</span>
-            <div class="close-modal" onclick="closeModal('service7Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv7Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>بناء أدمغة برمجية تتابع وتدير محادثاتك على الواتساب وتليجرام وإنستغرام لتصنيف الزبائن والرد الفوري الآلي على مدار الـ 24 ساعة.</p>
-                <ul>
-                    <li>ربط مباشر بجداول جوجل لتخزين بيانات وحجوزات العملاء بشكل لحظي وسحابي.</li>
-                    <li>منظومة تذكير ذكية للمواعيد تقلل من هدر الساعات والاتصالات البشرية.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>رد فوري في غضون 0.4 ثانية يقتنص العميل الساخن ويمنعه من الذهاب لمنافسيك.</span></div>
+            <div class="info-panel">
+                <h6>عقول برمجية مستيقظة لحراسة مشاريعك 🤖</h6>
+                <p>نصمم ونبني روبوتات وبوتات آلية مخصصة تعمل 24 ساعة دون تعب، للرد الفوري وتصنيف العملاء وإرسال الأسعار بدقة فوتونية.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20أنظمة%20الرد%20الذكي%20والأتمتة%20السحابية" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service7Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>أتمتة سيناريوهات البيع وحقن الكلمات الدلالية بالواتساب والتليجرام.</li>
+                    <li>ربط مباشر بجداول جوجل لتسجيل وتحديث الحجوزات آلياً.</li>
+                    <li>منظومة إرسال إشعارات وتذكير تلقائية للعملاء لضمان انضباطهم.</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>استجابة خارقة خلال 0.4 ثانية تمنع العميل الساخن من الهروب للمنافس.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20أنظمة%20الرد%20الذكي" class="modal-action-btn" target="_blank">تفعيل الأتمتة السحابية الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service8Modal" class="catalog-modal">
+    <div id="srv8Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-share-alt"></i> بناء المجتمعات الرقمية والقنوات</span>
-            <div class="close-modal" onclick="closeModal('service8Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv8Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>تأسيس وهيكلة قنوات تليجرام مخصصة للمشاريع الكبرى وتأمينها، مع ربطها التلقائي بالبوتات التفاعلية والتعليقات لبناء مجتمع مخلص لبراندك.</p>
-                <ul>
-                    <li>بناء خطط محتوى تسلسلي تحافظ على حرارة اهتمام وتفاعل العملاء بمنتجاتك.</li>
-                    <li>أنظمة حماية برمجية متقدمة لمنع سرقة المحتوى الحصري أو اختراق القنوات.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>ملكية تامة لقاعدة جماهيرية تصل لهواتفهم الإشعارات بنسبة 100% لعرض عروضك مجاناً.</span></div>
+            <div class="info-panel">
+                <h6>امتلاك قنوات الاتصال المباشرة والسيادية 📡</h6>
+                <p>نبني لك مجتمعاً مغلقاً ومملوكاً لك بالكامل عبر تليجرام، وربطه بأنظمة الرد والتعليقات والتحويل التلقائي ليكون المحرك الأول للوعي.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20بناء%20المجتمعات%20الرقمية%20والقنوات" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service8Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>هيكلة القنوات الرسمية وربطها التلقائي بأزرار تفاعلية للبوتات.</li>
+                    <li>إعداد سيناريوهات نشر دورية تحافظ على حرارة تفاعل الأعضاء.</li>
+                    <li>تثبيت حماية متطورة لمنع الاختراق أو سحب بيانات المشتركين بالقناة.</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>وصول بنسبة 100% لهواتف زبائنك لعرض عروضك مجاناً وبدون أي ميزانيات إعلانية.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20بناء%20المجتمعات%20الرقمية" class="modal-action-btn" target="_blank">تأسيس القناة والمجتمع الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
-    <div id="service9Modal" class="catalog-modal">
+    <div id="srv9Modal" class="catalog-modal">
         <div class="modal-header">
             <span class="modal-title"><i class="fas fa-ad"></i> إطلاق وإدارة الحملات الممولة المستهدفة</span>
-            <div class="close-modal" onclick="closeModal('service9Modal')"><i class="fas fa-times"></i></div>
+            <div class="close-modal" onclick="closeModal('srv9Modal')"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-wrapper">
-            <div class="detail-card-cyber">
-                <h5><i class="fas fa-info-circle"></i> ماذا نقدم في هذه الخدمة؟</h5>
-                <p>إدارة وتخطيط ميزانيتك الإعلانية على منصات ميتَا (فيسبوك وإنستغرام) عبر جماهير مخصصة وشبيهة لتجنب الهدر المالي.</p>
-                <ul>
-                    <li>تركيب أكواد البكسل (Pixel) لتتبع خطوات العملاء داخل موقعك بدقة بالغة.</li>
-                    <li>إجراء اختبارات دقيقة (A/B Testing) للوصول لأعلى عائد مبيعات مقابل أقل كلفة رسالة.</li>
-                </ul>
-                <div class="impact-strip"><strong>الأثر التسويقي:</strong><span>فتح تدفق مستمر ومنتظم للعملاء المهتمين مستعدي الدفع إلى قلب ماكينة مبيعاتك.</span></div>
+            <div class="info-panel">
+                <h6>فتح محابس تدفق الزبائن الجادين والمشترين 🎯</h6>
+                <p>نقوم بتخطيط وإدارة ميزانياتك الإعلانية على منصات ماتا بدقة، بالاعتماد على الفلترة المسبقة واستهداف الجماهير المخصصة والشبيهة.</p>
             </div>
-            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20إطلاق%20وإدارة%20الحملات%20الممولة" class="cta-action-modal-btn" target="_blank">طلب الخدمة وتحديد السعر <i class="fas fa-arrow-left"></i></a>
-            <div onclick="closeModal('service9Modal')" class="cta-dashed-close">إغلاق ✖️</div>
+            <div class="detail-card-cyber">
+                <h5><i class="fas fa-check-circle"></i> ماذا يشمل البروتوكول؟</h5>
+                <ul>
+                    <li>إعداد الحسابات الإعلانية الاحترافية وتركيب بكسل التتبع الذكي بدقة.</li>
+                    <li>اختبار وتطوير الحملات والأشكال المتعددة (A/B Testing) لتقليل التكلفة.</li>
+                    <li>تقديم تقارير توضح حجم الإنفاق والعائد الفعلي المحقق من المبيعات (ROAS).</li>
+                </ul>
+            </div>
+            <div class="impact-strip">
+                <strong>الأثر التشغيلي المباشر:</strong>
+                <span>توجيه ميزانيتك الإعلانية للأشخاص المستعدين للدفع فوراً ومنع هدر الأموال.</span>
+            </div>
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20إطلاق%20الحملات%20الممولة" class="modal-action-btn" target="_blank">إطلاق حملتك الممولة الآن <i class="fas fa-paper-plane"></i></a>
         </div>
     </div>
 
@@ -1179,7 +1178,7 @@
     </div>
 
     <script>
-        // دالة موحدة لفتح أي نافذة منبثقة بسلاسة
+        // دالة موحدة لفتح أي نافذة منبثقة بسلاسة وحفظ موضع السكيرول
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
             document.body.style.overflow = 'hidden';
