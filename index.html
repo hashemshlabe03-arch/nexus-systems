@@ -396,59 +396,128 @@
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
         }
 
-        /* شبكة الخدمات الفردية الفاخرة */
-        .grid-custom {
-            background: var(--glass-base);
-            border: 1px solid var(--glass-border);
-            border-radius: 26px;
-            padding: 22px;
-            margin-bottom: 25px;
-            backdrop-filter: blur(20px);
+        /* شبكة الهندسة الرقمية المطورة بالكامل V10 */
+        .cyber-services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 30px;
         }
 
-        .item-custom {
+        .service-node-card {
+            background: linear-gradient(145deg, rgba(10, 20, 40, 0.65), rgba(6, 9, 19, 0.8));
+            border: 1px solid rgba(0, 240, 255, 0.12);
+            border-radius: 20px;
+            padding: 18px 20px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 12px 5px;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .service-node-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; width: 3px; height: 100%;
+            background: transparent;
             transition: 0.3s;
         }
-        .item-custom:hover { transform: translateX(-4px); }
-        .item-custom:last-child { border-bottom: none; }
 
-        .item-custom i {
-            color: var(--neon-blue);
-            font-size: 14px;
-            background: rgba(0, 240, 255, 0.06);
-            width: 32px;
-            height: 32px;
-            border-radius: 10px;
+        .service-node-card:hover {
+            transform: translateX(-5px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 8px 25px rgba(189, 0, 255, 0.15);
+            background: linear-gradient(145deg, rgba(15, 25, 50, 0.75), rgba(6, 9, 19, 0.85));
+        }
+
+        .service-node-card:hover::before {
+            background: var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .node-icon-core {
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(0, 240, 255, 0.1);
+            color: var(--neon-blue);
+            font-size: 18px;
+            transition: 0.3s;
+            flex-shrink: 0;
         }
-        .item-custom span { font-size: 0.9rem; color: #d1dfef; }
 
-        .cta-dashed {
+        .service-node-card:hover .node-icon-core {
+            color: #fff;
+            background: var(--neon-purple);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
+            transform: rotate(360deg);
+        }
+
+        .node-meta {
+            flex: 1;
+        }
+
+        .node-meta .node-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #e2eeff;
+            margin-bottom: 3px;
             display: block;
-            background: rgba(0, 240, 255, 0.03);
+        }
+
+        .node-meta .node-desc {
+            font-size: 0.8rem;
+            color: #7d96bd;
+            display: block;
+            line-height: 1.4;
+        }
+
+        .node-arrow {
+            color: rgba(0, 240, 255, 0.3);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .service-node-card:hover .node-arrow {
+            color: var(--neon-purple);
+            transform: translateX(-3px);
+        }
+
+        /* زر الإجراء الشامل المطور */
+        .cta-premium-cyber {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(90deg, rgba(6, 9, 19, 0.8), rgba(0, 240, 255, 0.05));
             border: 1px dashed var(--neon-blue);
             color: var(--neon-blue);
             text-align: center;
-            padding: 14px;
-            border-radius: 18px;
-            margin-top: 20px;
+            padding: 16px;
+            border-radius: 20px;
+            margin-top: 25px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            transition: 0.3s;
+            transition: all 0.4s ease;
             text-shadow: var(--text-glow);
         }
-        .cta-dashed:hover {
-            background: rgba(0, 240, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+
+        .cta-premium-cyber:hover {
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            color: #fff;
+            border-style: solid;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+            text-shadow: none;
         }
 
         /* صندوق الحماية */
@@ -659,22 +728,96 @@
 
         <div class="section-title-cyber">الهندسة الرقمية والخدمات المخصصة</div>
         
-        <div class="grid-custom">
-            <div class="item-custom"><i class="fas fa-palette"></i><span>1. تصميم المنشورات والهويات البصرية الاحترافية</span></div>
-            <div class="item-custom"><i class="fas fa-pen-nib"></i><span>2. كتابة المحتوى التسويقي والإبداعي للمناشير</span></div>
-            <div class="item-custom"><i class="fas fa-comments"></i><span>3. إدارة السوشيال ميديا بالكامل والرد التلقائي والسريع على الزبائن</span></div>
-            <div class="item-custom"><i class="fas fa-map-pin"></i><span>4. إضافة وتوثيق وتهيئة موقع عملك على خرائط جوجل لزيادة الزوار</span></div>
-            <div class="item-custom"><i class="fas fa-laptop-code"></i><span>5. تصميم وتطوير المواقع الإلكترونية المخصصة والتعريفية</span></div>
-            <div class="item-custom"><i class="fas fa-robot"></i><span>6. بناء وتطوير "تليجرام ميني بوت" وربطه بالواتساب والموقع الخاص بك</span></div>
-            <div class="item-custom"><i class="fas fa-terminal"></i><span>7. إنشاء وتطوير بوتات العمل المؤتمتة لتسهيل العمليات التشغيلية</span></div>
-            <div class="item-custom"><i class="fas fa-share-alt"></i><span>8. إنشاء قنوات تليجرام خاصة بالمشاريع وربطها بالكامل مع أنظمة الرد</span></div>
-            <div class="item-custom"><i class="fas fa-ad"></i><span>9. إطلاق وإدارة الحملات الإعلانية الممولة (فيسبوك، إنستغرام، واتساب)</span></div>
-            <a href="https://t.me/hashem_shlabe03" class="cta-dashed">اضغط هنا لطلب تسعير خدمتك المخصصة 📊</a>
+        <div class="cyber-services-grid">
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تصميم%20المنشورات%20والهويات" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-palette"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">تصميم الهويات البصرية والبراندنج</span>
+                    <span class="node-desc">صناعة شعارات وقوالب منشورات تعكس فخامة منشأتك.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20كتابة%20المحتوى%20التسويقي" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-pen-nib"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">هندسة وصياغة المحتوى البيعي</span>
+                    <span class="node-desc">كتابة نصوص إعلانية تضرب الأنماط السيكولوجية للمشتري.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20إدارة%20السوشيال%20ميديا" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-comments"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">الإدارة والتشغيل الكامل للمنصات</span>
+                    <span class="node-desc">جدولة، تفاعل، وتوجيه فوري للاستفسارات الساخنة.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20خرائط%20جوجل%20SEO" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-map-pin"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">السيطرة المحلية عبر خرائط Google</span>
+                    <span class="node-desc">تهيئة السيو المحلي واحتلال النتائج الأولى لجلب زوار محيطك.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20تطوير%20المواقع%20الإلكترونية" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-laptop-code"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">تطوير المواقع وصفحات الهبوط</span>
+                    <span class="node-desc">برمجة واجهات تعريفية فائقة السرعة وعالية التحويل المالي.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20Telegram%20Mini%20Apps" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-robot"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">تطوير تطبيقات تليجرام المصغرة</span>
+                    <span class="node-desc">بناء ميني أب تفاعلي متكامل لحجز المواعيد وعرض الخدمات.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20أتمتة%20العمليات%20والبوتات" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-terminal"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">أنظمة الرد الذكي والأتمتة السحابية</span>
+                    <span class="node-desc">ربط تلقائي بالواتساب، واستجابة فوتونية فورية خلال 0.4 ثانية.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20إنشاء%20قنوات%20تليجرام" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-share-alt"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">بناء المجتمعات الرقمية والقنوات</span>
+                    <span class="node-desc">هيكلة قنوات تليجرام للمشاريع وربطها بأنظمة الحماية والرد.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03?text=أريد%20طلب%20خدمة:%20الحملات%20الإعلانية%20الممولة" class="service-node-card" target="_blank">
+                <div class="node-icon-core"><i class="fas fa-ad"></i></div>
+                <div class="node-meta">
+                    <span class="node-title">إطلاق وإدارة الحملات الممولة المستهدفة</span>
+                    <span class="node-desc">إعلانات Meta ممشوقة الميزانية للوصول لرواد الأعمال والمهتمين.</span>
+                </div>
+                <div class="node-arrow"><i class="fas fa-chevron-left"></i></div>
+            </a>
+
+            <a href="https://t.me/hashem_shlabe03" class="cta-premium-cyber">
+                <i class="fas fa-calculator"></i> اضغط هنا لطلب تسعير وهندسة خدمتك المخصصة
+            </a>
         </div>
 
         <div class="shield-cyber-box">
             <span>بروتوكول الضمان والنضوج الرقمي 🛡️</span>
-            <p>نحن نبني الأنظمة أولاً in منشأتك.. وتتابع الأداء والمبيعات بنفسك قبل إتمام أي تعاقد مالي متبادل.</p>
+            <p>نحن نبني الأنظمة أولاً في منشأتك.. وتتابع الأداء والمبيعات بنفسك قبل إتمام أي تعاقد مالي متبادل.</p>
         </div>
     </div>
 
@@ -695,7 +838,7 @@
                     <li><strong>المرحلة 1:</strong> تصميم الهوية الذهنية والفوتوغرافية وتجهيز صور وفيديوهات لخدمات العيادة (فيلر، بوتوكس، ليزر) ونشرها بشكل يعكس النظافة والأمان الطبي.</li>
                     <li><strong>المرحلة 2:</strong> بناء منظومة Telegram Mini App متكاملة ومربوطة بنظام حجز مواعيد حيوي، بحيث يدخل المريض يختار الطبيب، التخصص، والوقت بدقة وبلمسة إصبع.</li>
                     <li><strong>المرحلة 3:</strong> أتمتة الرد على رسائل التعليقات والخاص في إنستغرام وفيسبوك، وتحويل أي استفسار عن السعر مباشرة للبوت لإتمام الحجز فوراً دون انتظار موظف الاستقبال.</li>
-                    <li><strong>المرحلة 4:</strong> إطلاق حملات إعلانية ممولة تستهدف النطاق الجغرافي للعيادة بدقة مع تقديم عرض افتتاحي أو موسمي جاذب للجمهور المستهدف.</li>
+                    <li><strong>المرحلة 4:</strong> إطلاق حملات إعلانية ممولة تستهدف النطاق الجغرافي للعيادة بدقة مع تقديم عرض افتتاحي أو موسمى جاذب للجمهور المستهدف.</li>
                 </ul>
             </div>
 
@@ -909,7 +1052,7 @@
 
             <div class="detail-card-cyber">
                 <h5><i class="fas fa-share-alt"></i> الخدمة 08: إنشاء قنوات تليجرام خاصة بالمشاريع وربطها بالكامل</h5>
-                <p>نبني لك مجتمعاً رقمياً مغلقاً ومملكوكاً لك بالكامل. نؤسس قناة تليجرام احترافية لمشروعك، نربطها بأنظمة الرد والتعليقات والتحويل التلقائي للبوتات، لتصبح القناة هي المغذي والداعم الرئيسي لبناء الوعي بعلامتك التجارية.</p>
+                <p>نبني لك مجتمعاً رقمياً مغلقاً ومملكوكاً لك بالكامل. نؤسس قناة تليجرام احترافية لمشروعك, نربطها بأنظمة الرد والتعليقات والتحويل التلقائي للبوتات، لتصبح القناة هي المغذي والداعم الرئيسي لبناء الوعي بعلامتك التجارية.</p>
                 <span class="bullets-label">الأجزاء الأساسية المتضمنة:</span>
                 <ul>
                     <li>هيكلة القناة وربطها التلقائي بأزرار تفاعلية تقود العميل مباشرة لبوت الشراء.</li>
