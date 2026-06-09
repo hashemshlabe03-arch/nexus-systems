@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Systems | Omnichannel v6.0</title>
+    <title>Nexus Systems | Omnichannel v7.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -84,42 +84,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .tagline {
-            font-size: 0.95rem;
-            color: #8A99AD;
-            margin: 0;
-            font-weight: 300;
-        }
+        .tagline { font-size: 0.95rem; color: #8A99AD; margin: 0; font-weight: 300; }
 
-        .metrics-grid {
-            display: flex;
-            gap: 10px;
-            margin: 25px 0;
-        }
-
-        .metric-item {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 12px;
-            flex: 1;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .metric-item .num {
-            display: block;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--neon-blue);
-        }
-
-        .metric-item .label {
-            font-size: 0.75rem;
-            color: #A4B3C6;
-            margin-top: 3px;
-        }
+        .metrics-grid { display: flex; gap: 10px; margin: 25px 0; }
+        .metric-item { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 12px; flex: 1; text-align: center; backdrop-filter: blur(10px); }
+        .metric-item .num { display: block; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--neon-blue); }
+        .metric-item .label { font-size: 0.75rem; color: #A4B3C6; margin-top: 3px; }
 
         .scan-banner {
             background: linear-gradient(135deg, rgba(76, 201, 240, 0.15), rgba(67, 97, 238, 0.05));
@@ -129,21 +99,10 @@
             margin-bottom: 20px;
             text-align: center;
         }
+        .scan-banner h4 { margin: 0 0 8px 0; color: var(--neon-blue); font-size: 1.1rem; }
+        .scan-banner p { margin: 0 0 15px 0; font-size: 0.85rem; color: #D1DBE5; line-height: 1.5; }
 
-        .scan-banner h4 {
-            margin: 0 0 8px 0;
-            color: var(--neon-blue);
-            font-size: 1.1rem;
-        }
-
-        .scan-banner p {
-            margin: 0 0 15px 0;
-            font-size: 0.85rem;
-            color: #D1DBE5;
-            line-height: 1.5;
-        }
-
-        /* زر فتح الكتالوج التفاعلي المنبثق الجديد */
+        /* صندوق تشغيل الكتالوج التفاعلي */
         .catalog-trigger-box {
             background: linear-gradient(135deg, rgba(114, 9, 183, 0.25), rgba(76, 201, 240, 0.08));
             border: 1px solid rgba(114, 9, 183, 0.5);
@@ -158,34 +117,17 @@
             cursor: pointer;
             transition: 0.3s;
         }
-
-        .catalog-trigger-box:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3);
-        }
-
+        .catalog-trigger-box:hover { border-color: var(--neon-blue); box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3); }
         .catalog-info { text-align: right; }
         .catalog-info h5 { margin: 0 0 4px 0; font-size: 1rem; color: #FFFFFF; font-weight: 700; }
         .catalog-info p { margin: 0; font-size: 0.78rem; color: #A4B3C6; }
+        .btn-open-catalog { background: linear-gradient(45deg, var(--neon-purple), var(--accent)); color: white; padding: 10px 16px; border-radius: 14px; font-size: 0.85rem; font-weight: bold; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(114, 9, 183, 0.4); }
 
-        .btn-open-catalog {
-            background: linear-gradient(45deg, var(--neon-purple), var(--accent));
-            color: white;
-            padding: 10px 16px;
-            border-radius: 14px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(114, 9, 183, 0.4);
-        }
-
-        /* تصميم اللوحة الزجاجية المنبثقة للكتالوج الشامل */
+        /* اللوحة التفاعلية المنبثقة الشاملة */
         .catalog-modal {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(11, 19, 43, 0.95);
+            background: rgba(11, 19, 43, 0.98);
             backdrop-filter: blur(25px);
             z-index: 99999;
             opacity: 0;
@@ -194,69 +136,41 @@
             overflow-y: auto;
             padding: 20px;
         }
-
-        .catalog-modal.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-header {
-            max-width: 460px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: rgba(11, 19, 43, 0.95);
-            z-index: 10;
-        }
-
+        .catalog-modal.active { opacity: 1; pointer-events: auto; }
+        .modal-header { max-width: 460px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(11, 19, 43, 0.98); z-index: 10; }
         .modal-title { font-size: 1.1rem; font-weight: bold; color: var(--neon-blue); }
         .close-modal { background: var(--glass); border: 1px solid var(--border); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; }
         .close-modal:hover { background: rgba(255,0,0,0.2); border-color: #FF4D4D; }
+        
+        .modal-content-wrapper { max-width: 460px; margin: 20px auto 50px auto; }
+        
+        .intro-card { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04)); border: 1px solid var(--border); border-radius: 20px; padding: 20px; margin-bottom: 25px; }
+        .intro-card h6 { margin: 0 0 10px 0; font-size: 1.1rem; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+        .intro-card p { margin: 0 0 15px 0; font-size: 0.88rem; color: #D1DBE5; line-height: 1.6; }
+        
+        .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .goal-box { background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; padding: 10px; }
+        .goal-box strong { font-size: 0.85rem; color: var(--neon-blue); display: block; margin-bottom: 4px; }
+        .goal-box span { font-size: 0.75rem; color: #A4B3C6; line-height: 1.4; display: block; }
 
-        .modal-content-wrapper {
-            max-width: 460px;
-            margin: 20px auto 50px auto;
-        }
+        .modal-section-title { font-size: 1.1rem; color: #FFFFFF; margin: 30px 0 15px; border-right: 4px solid var(--neon-purple); padding-right: 12px; font-weight: bold; text-shadow: 0 0 10px rgba(114, 9, 183, 0.5); }
+        
+        /* بطاقات الخدمات الشاملة والتفصيلية */
+        .service-detail-card { background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+        .service-detail-card h7 { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; color: var(--neon-blue); font-weight: bold; margin-bottom: 12px; }
+        .service-detail-card h7 i { color: var(--neon-purple); font-size: 16px; }
+        .service-detail-card p { margin: 0 0 15px 0; font-size: 0.88rem; color: #E0E1DD; line-height: 1.6; background: rgba(0,0,0,0.15); padding: 10px; border-radius: 10px; }
+        
+        .bullet-title { font-size: 0.82rem; color: #8A99AD; font-weight: bold; margin: 10px 0 5px 0; display: block; }
+        .service-detail-card ul { margin: 0 0 15px 0; padding-right: 18px; font-size: 0.85rem; color: #D1DBE5; line-height: 1.5; }
+        .service-detail-card ul li { margin-bottom: 6px; }
+        
+        .meta-info-block { background: rgba(76, 201, 240, 0.03); border-left: 2px solid var(--neon-blue); padding: 8px 12px; border-radius: 0 8px 8px 0; margin-top: 8px; }
+        .meta-info-block strong { font-size: 0.8rem; color: var(--neon-blue); display: block; margin-bottom: 2px; }
+        .meta-info-block span { font-size: 0.8rem; color: #A4B3C6; line-height: 1.4; display: block; }
 
-        .intro-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05));
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-        .intro-card h6 { margin: 0 0 10px 0; font-size: 1.1rem; color: #fff; }
-        .intro-card p { margin: 0; font-size: 0.88rem; color: #D1DBE5; line-height: 1.6; }
-
-        .modal-section-title {
-            font-size: 1rem;
-            color: #8A99AD;
-            margin: 25px 0 15px;
-            border-right: 3px solid var(--neon-purple);
-            padding-right: 10px;
-            font-weight: bold;
-        }
-
-        .service-detail-card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 18px;
-            margin-bottom: 15px;
-        }
-        .service-detail-card h7 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; color: var(--neon-blue); font-weight: bold; margin-bottom: 8px; }
-        .service-detail-card h7 i { color: var(--neon-purple); }
-        .service-detail-card p { margin: 0 0 10px 0; font-size: 0.85rem; color: #E0E1DD; line-height: 1.5; }
-        .service-detail-card ul { margin: 0; padding-right: 20px; font-size: 0.8rem; color: #A4B3C6; }
-        .service-detail-card ul li { margin-bottom: 4px; }
-
+        /* بقية التنسيقات الثابتة للموقع */
         .section-title { font-size: 1.1rem; color: #8A99AD; margin: 25px 5px 15px; border-right: 3px solid var(--neon-blue); padding-right: 10px; font-weight: bold; }
-
         .system-card { background: var(--glass); border: 1px solid var(--border); border-radius: 22px; padding: 22px; margin-bottom: 18px; backdrop-filter: blur(15px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
         .system-card:active, .system-card:hover { background: var(--glass-hover); border-color: var(--neon-blue); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(76, 201, 240, 0.12); }
         .card-icon { width: 45px; height: 45px; background: rgba(76, 201, 240, 0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--neon-blue); font-size: 20px; margin-bottom: 15px; }
@@ -387,64 +301,134 @@
             <div class="close-modal" onclick="closeCatalog()"><i class="fas fa-times"></i></div>
         </div>
         <div class="modal-content-wrapper">
+            
             <div class="intro-card">
                 <h6>رسالة تعريفية 🎯</h6>
-                <p>نحن لا نقدم خدمة منفصلة... بل نبني تجربة متكاملة للعميل. في السوق الحالي لم يعد كافياً امتلاك منتج جيد، مشروعك بحاجة إلى منظومة رقمية مترابطة تجعل العميل يعرفك، يثق بك، ثم يشتري بسهولة.</p>
+                <p>نحن لا نقدم خدمة منفصلة... بل نبني تجربة متكاملة للعميل. في السوق الحالي، لم يعد كافياً أن تمتلك منتجاً جيداً أو فكرة قوية؛ ما يحتاجه مشروعك فعلاً هو منظومة رقمية مترابطة تجعل العميل يعرفك، يفهم قيمتك، يثق بك، ثم يتواصل أو يشتري بسهولة. هنا يأتي دور Nexus Core لنساعدك على تحويل الحضور الرقمي إلى مسار مبيعات واضح.</p>
+                
+                <div class="goals-grid">
+                    <div class="goal-box"><strong>01 جذب العميل</strong><span>من خلال هوية احترافية ومحتوى منظم ومفهوم من أول نظرة.</span></div>
+                    <div class="goal-box"><strong>02 رفع التحويل</strong><span>بتحسين صفحات الهبوط وصياغة العروض وتسهيل الطلب.</span></div>
+                    <div class="goal-box"><strong>03 تشغيل أذكياء</strong><span>بتقليل الهدر البشري والرد الفوري والمتابعة الآلية.</span></div>
+                    <div class="goal-box"><strong>04 نتائج مستدامة</strong><span>بناء قاعدة بيانات وعملاء مخلصين تتواصل معهم باستمرار.</span></div>
+                </div>
             </div>
 
-            <div class="modal-section-title">تفاصيل الحلول التشغيلية ⚙️</div>
+            <div class="modal-section-title">فهرس وهندسة الخدمات التفصيلية ⚙️</div>
 
             <div class="service-detail-card">
-                <h7><i class="fas fa-palette"></i> 01. الهوية البصرية وصناعة الصورة الذهنية</h7>
-                <p>نجعل مشروعك يبدو أكثر احترافية من أول نظرة لتعزيز الثقة وتقليل التردد لدى العميل.</p>
+                <h7><i class="fas fa-palette"></i> الخدمة 01: الهوية البصرية وصناعة الصورة الذهنية</h7>
+                <p>نجعل مشروعك يبدو أكثر احترافية من أول نظرة لتعزيز الثقة وتقليل التردد لدى العميل. مناسبة للمشاريع الجديدة أو التي ترغب في إعادة التموقع.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
                 <ul>
-                    <li>تصميم الشعار وبناء النسخ المناسبة لاستخداماته.</li>
-                    <li>اختيار الألوان والخطوط التي تعكس شخصية المشروع.</li>
-                    <li>إعداد دليل هوية مختصر وقوالب سوشيال ميديا جاهزة.</li>
+                    <li>تصميم الشعار وبناء النسخ المناسبة لاستخداماته المتعددة.</li>
+                    <li>اختيار الألوان والخطوط المتناسقة التي تعكس شخصية المشروع.</li>
+                    <li>إعداد دليل هوية مختصر وقوالب منشورات جاهزة للاستخدام.</li>
                 </ul>
-            </div>
-
-            <div class="service-detail-card">
-                <h7><i class="fas fa-pen-fancy"></i> 02. المحتوى التسويقي وإدارة الرسائل الرقمية</h7>
-                <p>نرتب ما تقوله علامتك وكيف تقوله، ليشرح القيمة ويقود العميل نحو الطلب أو الحجز.</p>
-                <ul>
-                    <li>بناء خطة محتوى شهرية أو مرحلية منظمة.</li>
-                    <li>كتابة نصوص تعريفية، بيعية، وسيناريوهات فيديو بيعية.</li>
-                    <li>تنظيم نبرة الخطاب لتكون ثابتة وقوية عبر المنصات.</li>
-                </ul>
-            </div>
-
-            <div class="service-detail-card">
-                <h7><i class="fas fa-laptop-code"></i> 03. المواقع الإلكترونية وصفحات الهبوط</h7>
-                <p>نصمم حضورك الرقمي ليعمل كواجهة بيع حقيقية تقود العميل خطوة بخطوة نحو الإجراء المباشر.</p>
-                <ul>
-                    <li>مواقع تعريفية للشركات تعرض القيمة بشكل منظم.</li>
-                    <li>صفحات هبوط مخصصة للحملات لرفع معدل التحويل.</li>
-                    <li>تصميم متجاوب بالكامل مع الهاتف وسريع وسهل الاستخدام.</li>
-                </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>بناء هيبة بصرية تجعل العميل يتقبل القيمة السعرية لخدماتك بكل أريحية وثقة.</span></div>
             </div>
 
             <div class="service-detail-card">
-                <h7><i class="fas fa-robot"></i> 04. الأتمتة الذكية وبوتات الأعمال 24/7</h7>
-                <p>نقلل العمل اليدوي المتكرر، نسرع الاستجابة، ونضمن عدم ضياع أي عميل محتمل بين الرسائل.</p>
+                <h7><i class="fas fa-pen-fancy"></i> الخدمة 02: المحتوى التسويقي وإدارة الرسائل</h7>
+                <p>نرتب ما تقوله علامتك التجارية وكيف تقوله، ليشرح القيمة ويقود العميل نحو اتخاذ إجراء الطلب أو الحجز مباشرة. مناسب للمشاريع التي تعاني من جمود في التفاعل.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
                 <ul>
-                    <li>الرد على الأسئلة الشائعة وفلترة العملاء الجادين فوراً.</li>
-                    <li>تنظيم واستقبال العملاء وتوجيههم للأقسام الصحيحة.</li>
-                    <li>إدارة الحجوزات، المواعيد، والإشعارات التلقائية الذكية.</li>
+                    <li>بناء خطة محتوى شهرية أو مرحلية منظمة ومترابطة الأهداف.</li>
+                    <li>كتابة نصوص تعريفية، منشورات تفاعلية، وسيناريوهات بيعية واضحة.</li>
+                    <li>تنظيم نبرة الخطاب لتكون ثابتة وقوية عبر كافة منصات التواصل.</li>
                 </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>تحويل حساباتك إلى أداة إقناع تتحدث بلغة المنافع والحلول لجلب المشترين الجادين.</span></div>
             </div>
 
             <div class="service-detail-card">
-                <h7><i class="fas fa-mobile-alt"></i> 05. Telegram Mini Apps والحلول المخصصة</h7>
-                <p>نحول تطبيق تليجرام إلى تجربة استخدام متكاملة أقرب للتطبيقات المستقلة لتسهيل الطلب.</p>
+                <h7><i class="fas fa-bullhorn"></i> الخدمة 03: الحملات الإعلانية الممولة الموجهة</h7>
+                <p>نضمن وصول مشروعك ورسالتك البيعية إلى العميل المهتم فعلياً بالشراء والمستعد للدفع، بدلاً من إهدار الميزانيات.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
                 <ul>
-                    <li>تطوير ميني أب بواجهات منظمة لعرض الخدمات والمنيو.</li>
-                    <li>إدراج نماذج حجز سريعة وسلسة وربطها بلوحات التحكم.</li>
-                    <li>تقديم تجربة حديثة ترفع معدلات البيع وتوحي بالاحتراف التام.</li>
+                    <li>إعداد وتجهيز الحسابات الإعلانية وإعدادات الربط والتتبع الذكي.</li>
+                    <li>تحديد واستهداف الجماهير والشرائح المناسبة بدقة جغرافية وعمرية.</li>
+                    <li>إطلاق الحملات وإدارتها وتحليل نتائجها لضمان أعلى عائد مالي (ROAS).</li>
                 </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>ضخ زبائن مهتمين داخل قمع المبيعات الخاص بك بشكل فوري ومستمر.</span></div>
             </div>
 
-            <a href="https://t.me/hashem_shlabe03" class="custom-cta" style="border-color: var(--neon-purple); color: #fff; background: rgba(114, 9, 183, 0.1);">اغلق الكتالوج وابدأ معنا الآن 🚀</a>
+            <div class="service-detail-card">
+                <h7><i class="fas fa-map-marked-alt"></i> الخدمة 04: تهيئة التواجد الجغرافي وسيو الخرائط</h7>
+                <p>نضع منشأتك التجارية أمام الباحثين عنها في محيطك الجغرافي مجاناً عبر تصدر نتائج بحث خرائط جوجل.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
+                <ul>
+                    <li>إضافة أو توثيق وتعديل معلومات موقعك الجغرافي بالكامل.</li>
+                    <li>تحسين الكلمات المفتاحية المحلية (Local SEO) لتصدر نتائج البحث.</li>
+                    <li>تقديم نصائح واستراتيجيات عملية لجمع وتقوية المراجعات والتقييمات.</li>
+                </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>جلب زوار وعملاء فعليين يبحثون عن خدمتك في محيطك الآن مجاناً وبدون عمولات.</span></div>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-laptop-code"></i> الخدمة 05: المواقع الإلكترونية وصفحات الهبوط</h7>
+                <p>نصمم حضورك المستقل على الويب ليعمل كواجهة بيع رسمية تقود العميل خطوة بخطوة دون مشتتات نحو الحجز أو الطلب.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
+                <ul>
+                    <li>تطوير مواقع تعريفية للشركات والمكاتب تعرض القيمة بشكل منظم.</li>
+                    <li>تصميم صفحات هبوط مخصصة وموجهة لإنجاح حملاتك الإعلانية المدفوعة.</li>
+                    <li>برمجة متجاوبة 100% مع الهواتف الذكية وتجربة مستخدم سريعة جداً.</li>
+                </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>امتلاك مقر رقمي مستقل يمنح مشروعك الشرعية الكاملة والهيبة أمام الشركاء والعملاء.</span></div>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-mobile-alt"></i> الخدمة 06: Telegram Mini Apps والحلول المخصصة</h7>
+                <p>نحول تطبيق تليجرام التقليدي إلى تجربة استخدام متكاملة فائقة السرعة وأقرب للتطبيقات المستقلة لتسهيل الطلب والمتابعة لاحقاً.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
+                <ul>
+                    <li>تطوير واجهات Mini Apps احترافية ومنظمة لعرض الخدمات، المنتجات، أو المنيو.</li>
+                    <li>إدراج نماذج حجز سريعة وتسجيل البيانات داخل تجربة سلسة بلمسة إصبع.</li>
+                    <li>ربط قواعد البيانات أو الجداول واللوحات الداخلية لمتابعة الطلبات تلقائياً.</li>
+                </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>تجربة تصفح عصرية ترفع معدلات استكمال الطلبات وتلغي مشتتات التحميل الخارجي.</span></div>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-robot"></i> الخدمة 07: الأتمتة الذكية وبوتات الأعمال للرد الفوري</h7>
+                <p>نلغي العمل اليدوي المتكرر، نسرع الاستجابة، ونضمن عدم ضياع أي عميل محتمل بسبب تأخر الرد البشري على مدار الساعة 24/7.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
+                <ul>
+                    <li>برمجة البوت للرد التلقائي على الأسئلة الشائعة وفلترة الزبائن الجادين.</li>
+                    <li>إدارة وتأكيد الحجوزات والموعد وإرسال الإشعارات التلقائية للمستخدم.</li>
+                    <li>تقليل الضغط التشغيلي على فريق عملك البشري وتحسين سرعة الخدمة.</li>
+                </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>استجابة فورية فائقة السرعة تحول المتابع العابر إلى مشترٍ قبل أن يذهب للمنافس.</span></div>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-share-alt"></i> الخدمة 08: قنوات تليجرام وبناء المجتمعات الرقمية</h7>
+                <p>نؤسس قنوات منظمة للمشاريع تعمل كبيئة متكاملة لجمع المهتمين وعرض التحديثات بشكل مستمر ومقنع.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
+                <ul>
+                    <li>تأسيس وهيكلة القناة وربطها التلقائي مع أزرار البوت والمنظومة الشاملة.</li>
+                    <li>جدولة عروض ومنشورات تحافظ على ولاء العميل وتذكره ببراندك دائماً.</li>
+                </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>بناء قاعدة زبائن مخلصين تصلهم عروضك على هواتفهم بنسبة وصول 100% وبدون تكلفة إعلانية متكررة.</span></div>
+            </div>
+
+            <div class="service-detail-card">
+                <h7><i class="fas fa-headset"></i> الخدمة 09: إدارة السوشيال ميديا وتشغيل خدمة العملاء</h7>
+                <p>نتولى عنك عبء إدارة المنصات اليومي من جدولة المنشورات ومراقبة التفاعل والرد الفوري على الرسائل والتعليقات بكل احترافية.</p>
+                <span class="bullet-title">الأجزاء الأساسية المتضمنة:</span>
+                <ul>
+                    <li>متابعة لحظية لكافة الاستفسارات الواردة على (فيسبوك، تيك توك، إنستغرام).</li>
+                    <li>تحويل التعليقات العادية إلى رسائل مبيعات مباشرة داخل البوت أو الواتساب.</li>
+                </ul>
+                <div class="meta-info-block"><strong>الميزة الأساسية والأثر:</strong><span>إبقاء منشأتك حية ومتفاعلة ومستعدة دائماً لتقفي أثر أي زبون يبدي اهتماماً بخدماتك.</span></div>
+            </div>
+
+            <div class="intro-card" style="border-color: var(--neon-blue); background: rgba(76,201,240,0.02); margin-top: 30px;">
+                <h6>لماذا تثق بـ Nexus Core؟ 🛡️</h6>
+                <p>لأننا نعمل بمبدأ <strong>(النتائج أولاً، والتعاقد ثانياً)</strong>. نحن نقوم بفحص وتحديد الثغرات التقنية والتسويقية في مشروعك مجاناً، ونرسم لك خطة الأتمتة والتشغيل المناسبة لحجم عملك وميزانيتك، لتراها بعينك وتلمس فعاليتها قبل إتمام أي اتفاق مالي متبادل.</p>
+                <p style="text-align: center; font-weight: bold; color: var(--neon-blue); margin-top: 15px;">هل أنت مستعد لنقل مشروعك إلى مستوى الأتمتة المطلقة؟</p>
+            </div>
+
+            <div onclick="closeCatalog()" class="custom-cta" style="border-color: var(--neon-purple); color: #fff; background: linear-gradient(45deg, var(--neon-purple), var(--accent)); cursor: pointer;">اغلق الدليل والعودة للواجهة الرئيسية 🚀</div>
         </div>
     </div>
 
@@ -455,10 +439,9 @@
     </div>
 
     <script>
-        // فتح وإغلاق النافذة المنبثقة
         function openCatalog() {
             document.getElementById('catalogModal').classList.add('active');
-            document.body.style.overflow = 'hidden'; // منع تمرير الخلفية أثناء تصفح الدليل
+            document.body.style.overflow = 'hidden';
         }
 
         function closeCatalog() {
@@ -466,7 +449,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // كود العدادات
         const counters = document.querySelectorAll('.num');
         counters.forEach(counter => {
             const updateCount = () => {
