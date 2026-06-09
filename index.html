@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Systems | Omnichannel v4.5</title>
+    <title>Nexus Systems | Omnichannel v5.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Orbitron:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -129,7 +129,7 @@
             border: 1px solid rgba(76, 201, 240, 0.25);
             border-radius: 20px;
             padding: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
@@ -144,6 +144,63 @@
             font-size: 0.85rem;
             color: #D1DBE5;
             line-height: 1.5;
+        }
+
+        /* زر تحميل دليل الخدمات الفاخر المضاف حديثاً */
+        .catalog-download-box {
+            background: linear-gradient(135deg, rgba(114, 9, 183, 0.2), rgba(76, 201, 240, 0.05));
+            border: 1px solid rgba(114, 9, 183, 0.4);
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            box-shadow: 0 8px 25px rgba(114, 9, 183, 0.15);
+            transition: 0.3s;
+        }
+
+        .catalog-download-box:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.2);
+        }
+
+        .catalog-info {
+            text-align: right;
+        }
+
+        .catalog-info h5 {
+            margin: 0 0 4px 0;
+            font-size: 1rem;
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .catalog-info p {
+            margin: 0;
+            font-size: 0.78rem;
+            color: #A4B3C6;
+        }
+
+        .btn-download {
+            background: linear-gradient(45deg, var(--neon-purple), var(--accent));
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(114, 9, 183, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-download:active, .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.4);
         }
 
         /* عناوين الأقسام */
@@ -394,6 +451,16 @@
             <a href="https://t.me/hashem_shlabe03" style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; text-decoration: none;">اطلب فحص مشروعك الآن ←</a>
         </div>
 
+        <div class="catalog-download-box">
+            <div class="catalog-info">
+                <h5>كتالوج الخدمات الشامل 2026 📖</h5>
+                <p>تصفّح بالتفصيل الهندسة التشغيلية وآلية العمل لكل خدمة</p>
+            </div>
+            <a href="guide.pdf" class="btn-download" download="Nexus_Core_Catalog_2026.pdf">
+                <i class="fas fa-file-pdf"></i> تحميل PDF
+            </a>
+        </div>
+
         <div class="section-title">الباقات التشغيلية الشاملة</div>
 
         <div class="system-card">
@@ -457,7 +524,7 @@
     </div>
 
     <div class="bottom-nav">
-        <a href="https://wa.me/218XXXXXXXXX" class="nav-link link-whatsapp" target="_blank" title="مراسلة واتساب مباشر"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/218921350500" class="nav-link link-whatsapp" target="_blank" title="مراسلة واتساب مباشر"><i class="fab fa-whatsapp"></i></a>
         
         <a href="https://t.me/hashem_shlabe03" class="cta-pulse">حجز استشارة مبيعات</a>
         
