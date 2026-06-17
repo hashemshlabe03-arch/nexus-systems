@@ -60,31 +60,49 @@ async def packages(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 """
     await update.message.reply_text(text=table_text, parse_mode='HTML')
 
-# --- خدعة الويب لإرضاء سيرفر Render ومنع خطأ 127 ---
+# --- خادم الويب الوهمي لإرضاء Render ---
 def run_dummy_server():
-    # المنصة تطلب تشغيل منفذ رقم 10000 تلقائياً لخدمات الويب
     port = 10000
     handler = SimpleHTTPRequestHandler
-    with TCPServer(("", port), handler) as httpd:
-        logging.info(f"Dummy web server running on port {port}")
-        httpd.serve_forever()
+    try:
+        with TCPServer(("", port), handler) as httpd:
+            logging.info(f"Dummy web server running on port {port}")
+            httpd.serve_forever()
+    except Exception as e:
+        logging.error(f"Web server error: {e}")
+
+async def run_bot():
+    # ⚠️ ضع التوكن الخاص بك هنا بدقة
+    TOKEN = "8015018837:AAFV-canikedHmY3Ysj3bY59L2eUYv7yOLE"
+    
+    application = Application.builder().token(TOKEN).build()
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("packages", packages))
+    
+    # تهيئة البوت وتشغيله يدوياً لتجنب مشاكل المزامنة في بايثون 3.14
+    await application.initialize()
+    await application.start()
+    logging.info("Bot started successfully, entering polling mode...")
+    await application.updater.start_polling()
+    
+    # الحفاظ على تشغيل البوت للأبد
+    while True:
+        await asyncio.sleep(3600)
 
 def main() -> None:
-    # تشغيل السيرفر الوهمي في خلفية منفصلة تماماً
+    # تشغيل سيرفر الويب في خلفية منفصلة
     web_thread = Thread(target=run_dummy_server, daemon=True)
     web_thread.start()
 
-    # ⚠️ ضع التوكن الخاص بك هنا بالملي
-    TOKEN = "8015018837:AAFV-canikedHmY3Ysj3bY59L2eUYv7yOLE"
-    
-    # بناء وتوصيل البوت تلقائياً بالـ API
-    application = Application.builder().token(TOKEN).build()
-
-    application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("packages", packages))
-
-    # تشغيل البوت بنظام الاستطلاع المستمر
-    application.run_polling()
+    # إنشاء وإدارة الـ event loop يدوياً لحل مشكلة RuntimeError بشكل جذري
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        loop.run_until_complete(run_bot())
+    except KeyboardInterrupt:
+        pass
+    finally:
+        loop.close()
 
 if __name__ == '__main__':
     main()
